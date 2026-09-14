@@ -1,5 +1,6 @@
 package com.example.calcula
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -12,8 +13,8 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
 
     var operacionActual=""
-    var firstNumber:Double= Double.NaN
-    var segunNumber:Double= Double.NaN
+    var firstNumber:Double =0.00
+    var segunNumber:Double= 0.00
     lateinit var inputTv: TextView
     lateinit var resultTv: TextView
 
@@ -53,19 +54,20 @@ class MainActivity : AppCompatActivity() {
             b.text.toString() == "÷" ||
             b.text.toString() == "%"
         ) {
-            OperatorSelected(b)
+            operatorSelected(b)
 
         }else if (b.text.toString() == "C") {
-            Delete()
+            delete()
         }else if (b.text.toString() == "AC") {
-            Allclear()
+            allclear()
         }else {
-            NumberSelected(b)
+            numberSelected(b)
         }
 
     }
 
-    fun NumberSelected(butt: View){
+    @SuppressLint("SetTextI18n")
+    fun numberSelected(butt: View){
         val b =butt as Button
         if(inputTv.text.toString()=="0"){
             inputTv.text=b.text.toString()
@@ -74,29 +76,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun OperatorSelected(butt: View){
+    @SuppressLint("SetTextI18n")
+    fun operatorSelected(butt: View){
         val b=butt as Button
         firstNumber = inputTv.text.toString().toDouble()
 
-        if (b.text.toString()==mult){
-            operacionActual="*"
+        operacionActual = if (b.text.toString()==mult){
+            "*"
         }else if (b.text.toString()==div) {
-            operacionActual="/"
+            "/"
         }else {
-            operacionActual=b.text.toString().trim()
+            b.text.toString().trim()
         }
         inputTv.text = firstNumber.toString() + b.text.toString()
 
     }
 
-    fun SaveSecondNumber() {
+    fun saveSecondNumber() {
 
         val texto = inputTv.text.toString()
-        var operador =""
-         when (operacionActual) {
-            "*" -> operador ="X"
-            "/" -> operador ="÷"
-            else -> operador =operacionActual
+        val operador : String = when (operacionActual) {
+            "*" -> "X"
+            "/" -> "÷"
+            else -> operacionActual
         }
 
         val numero2 = texto.substringAfter(operador)
@@ -112,7 +114,7 @@ class MainActivity : AppCompatActivity() {
             if (inputTv.text.toString().isNotEmpty() &&
                 operacionActual.isNotEmpty()) {
 
-                SaveSecondNumber()
+                saveSecondNumber()
                 calculate()
 
             }
@@ -123,6 +125,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     fun calculate(){
 
         when(operacionActual){
@@ -139,14 +142,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun Allclear() {
+    fun allclear() {
         inputTv.text = "0"
         resultTv.text = "0"
         firstNumber = Double.NaN
         segunNumber = Double.NaN
         operacionActual = ""
     }
-    fun Delete() {
+    fun delete() {
         val text = inputTv.text.toString()
 
         if (text.length > 1) {
