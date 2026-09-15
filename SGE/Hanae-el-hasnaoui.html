@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>el_hasnaoui_hanae_trabajo01</title>
+    <style>
+      body {
+        font-family:  Arial;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px auto;
+        max-width: 800px;
+        padding: 20px;
+        background-color: #ffffff;
+      }
+
+      /* Encabezado Superior Académico */
+      .header-top {
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .logo-placeholder {
+        font-weight: bold;
+        color: #0056b3;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .info-modulo {
+        text-align: right;
+        font-size: 0.9rem;
+        color: #555555;
+      }
+
+      .info-modulo strong {
+        color: #222222;
+      }
+
+      /* Título Principal */
+      h1 {
+        text-align: center;
+        color: #222222;
+        font-size: 1.8rem;
+        margin-top: 40px;
+        margin-bottom: 30px;
+      }
+
+      /* Índice de Preguntas */
+      .indice {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 6px;
+        padding: 20px;
+        margin-bottom: 40px;
+      }
+
+      .indice h2 {
+        font-size: 1.2rem;
+        margin-top: 0;
+        color: #0056b3;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 5px;
+      }
+
+      .indice ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+      }
+
+      .indice li {
+        margin-bottom: 8px;
+      }
+
+      .indice a {
+        text-decoration: none;
+        color: #333333;
+      }
+
+      .indice a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+      }
+
+      /* Bloque de Contenido y Formato de Párrafos */
+      .contenido {
+        margin-bottom: 60px;
+      }
+
+      .pregunta {
+        margin-top: 35px;
+        scroll-margin-top: 20px;
+      }
+
+      h3 {
+        color: #0056b3;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 5px;
+        margin-bottom: 12px;
+      }
+
+      /* Texto justificado a izquierda y derecha con interlineado cuidado */
+      p {
+        text-align: justify;
+        text-justify: inter-word;
+        margin-bottom: 15px;
+        font-size: 1rem;
+      }
+
+      /* Sangrías para las listas internas */
+      ul.respuestas-lista {
+        padding-left: 25px;
+        margin-bottom: 15px;
+      }
+
+      ul.respuestas-lista li {
+        text-align: justify;
+        margin-bottom: 8px;
+      }
+
+      /* Encabezado Inferior / Pie de Página */
+      .footer-bottom {
+        border-top: 1px solid #dee2e6;
+        padding-top: 15px;
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: #777777;
+      }
+
+      /* Reglas de impresión para simular un PDF */
+      @media print {
+        body {
+          margin: 20px;
+          max-width: 100%;
+        }
+        .indice {
+          background-color: transparent;
+          page-break-after: always;
+        }
+        .pregunta {
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Encabezado Superior -->
+    <header class="header-top">
+      <div class="logo-placeholder">
+        <img src="images.jpg" height="150px" width="150px" />
+      </div>
+      <div class="info-modulo">
+        <strong>Módulo:</strong> Sistema de Gestión Empresarial<br />
+        <strong>Capítulo:</strong> 1-Los sistemas y tecnologías de la
+        información en la empresa<br />
+        <strong>Alumna:</strong> Hanae El Hasnaoui<br />
+        <strong>Fecha:</strong> 15 de septiembre de 2026
+      </div>
+    </header>
+
+    <h1>Trabajo Evaluativo: Sistemas de Información</h1>
+
+    <nav class="indice">
+      <h2>Índice de Preguntas</h2>
+      <ul>
+        <li>
+          <a href="#p1"
+            >1.1 ¿Cuál es el principal cometido de un Sistema de Información y
+            dónde reside su valor para la empresa?</a
+          >
+        </li>
+        <li>
+          <a href="#p2"
+            >1.2 ¿Criterios con los que un Sistema de Información gestiona la
+            información?</a
+          >
+        </li>
+        <li><a href="#p3">1.3 ¿A qué llamamos datos?</a></li>
+        <li><a href="#p4">1.4 ¿A qué llamamos información?</a></li>
+        <li>
+          <a href="#p5"
+            >1.5 Requisitos que debe cumplir la información para ser útil.</a
+          >
+        </li>
+        <li>
+          <a href="#p6"
+            >1.6 Posibles problemas que nos puede dar la información.</a
+          >
+        </li>
+        <li>
+          <a href="#p7"
+            >1.7 ¿Diferentes necesidades de Información en relación al nivel
+            organizativo en la empresa?</a
+          >
+        </li>
+        <li><a href="#p8">1.8 ¿Definición de un sistema de información?</a></li>
+        <li><a href="#p9">1.9 ¿Propósito de un sistema de información?</a></li>
+        <li><a href="#p10">1.10 ¿Qué es la regla "GIGO"?</a></li>
+        <li><a href="#p11">1.11 ¿Dónde está el verdadero valor de un S.I.?</a></li>
+        <li><a href="#p12">1.12 ¿Cómo influye el factor humano para el éxito de un S.I.?</a></li>
+      </ul>
+    </nav>
+
+    <main class="contenido">
+      <section id="p1" class="pregunta">
+        <h3>
+          1.1 ¿Cuál es el principal cometido de un Sistema de Información y
+          dónde reside su valor para la empresa?
+        </h3>
+        <p>
+          Su tarea principal es ordenar el caos. Se encarga de reunir, guardar y
+          repartir los datos importantes para que el día a día de la empresa
+          funcione sin problemas. Su valor real está en que ayuda a decidir
+          bien. No es solo tecnología; es la herramienta que evita que la
+          empresa vaya a ciegas, permitiendo reaccionar rápido frente a la
+          competencia y ahorrar dinero.
+        </p>
+      </section>
+
+      <section id="p2" class="pregunta">
+        <h3>
+          1.2 ¿Criterios con los que un Sistema de Información gestiona la
+          información?
+        </h3>
+        <p>
+          Para que la información sea realmente útil y el negocio no vaya a
+          ciegas, un Sistema de Información no puede guardar los datos de
+          cualquier manera. Debe filtrarlos y gestionarlos bajo
+          <strong>seis criterios de calidad fundamentales</strong>:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Exactitud (Fiabilidad):</strong> Los datos deben ser
+            correctos y libres de errores. Una información equivocada lleva a
+            una mala decisión y a perder dinero.
+          </li>
+          <li>
+            <strong>Oportunidad (Tiempo):</strong> La información debe estar
+            disponible justo cuando se necesita. Un reporte de ventas que llega
+            un mes tarde ya no sirve para reaccionar ante la competencia.
+          </li>
+          <li>
+            <strong>Integridad (Completitud):</strong> Debe mostrar la imagen
+            completa, sin piezas faltantes. Tomar decisiones con datos a medias
+            es tan peligroso como hacerlo a ciegas.
+          </li>
+          <li>
+            <strong>Relevancia (Utilidad):</strong> El sistema debe entregar
+            solo lo que realmente importa para cada puesto. Demasiada
+            información irrelevante genera un nuevo caos.
+          </li>
+          <li>
+            <strong>Accesibilidad (Seguridad):</strong> La información debe ser
+            fácil de encontrar para las personas autorizadas, pero estar
+            completamente protegida frente a miradas externas o ciberataques.
+          </li>
+          <li>
+            <strong>Consistencia (Formato):</strong> Los datos deben mantener el
+            mismo sentido en toda la empresa. Si el departamento de ventas y el
+            de contabilidad miden los "ingresos" de forma distinta, el sistema
+            pierde su valor.
+          </li>
+        </ul>
+      </section>
+
+      <section id="p3" class="pregunta">
+        <h3>1.3 ¿A qué llamamos datos?</h3>
+         <p>En informática, los datos son <strong>representaciones simbólicas</strong> (numéricas, alfabéticas, algorítmicas, etc.) de un determinado atributo o variable cualitativa o cuantitativa. En otras palabras, constituyen la <strong>descripción codificada de un hecho empírico</strong>, un suceso o una entidad.</p>
+    
+    <p>Los datos representan la información (valores o referentes) que recibe el computador a través de distintos medios, y que es manipulada mediante el procesamiento de los algoritmos de programación.</p>
+    
+    <div class="highlight-box">
+        <p><strong>Nota clave sobre el contenido:</strong> Su contenido puede ser prácticamente cualquiera (estadísticas, números, descriptores). Por separado <strong>no tienen relevancia</strong> para los usuarios del sistema, pero en conjunto pueden ser interpretados para obtener una información completa y específica.</p>
+    </div>
+      </section>
+
+      <section id="p4" class="pregunta">
+        <h3>1.4 ¿A qué llamamos información?</h3>
+          <p>La <strong>información en general</strong> es cualquier dato obtenido por una persona, independientemente de su forma de presentación. Sin embargo, al considerar el concepto en informática, hay que señalar que en esta ciencia la palabra «información» tiene un carácter más bien abstracto.</p>
+    
+    <p>La informática es una doctrina que se ocupa de los datos, es decir, de las formas de almacenarlos, transferirlos, procesarlos y representarlos de forma conveniente para el usuario. Los datos son el objeto de estudio de la informática, y constituyen la <strong>información en forma formalizada</strong> (codificada en una forma digital comprensible para un ordenador, concretamente en código binario).</p>
+
+    <div class="highlight-box" style="border-left-color: #2ecc71;">
+        <p><strong>El valor de la transformación:</strong> La información es el resultado de procesar, organizar, estructurar y contextualizar los datos brutos. Si el dato es la materia prima (un número o un símbolo aislado que no dice nada), la información es el <strong>producto terminado</strong> que reduce la incertidumbre, aporta significado y tiene una utilidad directa para las personas.</p>
+    </div>
+    
+    <p>En el contexto de una empresa, los datos se convierten en información cuando responden a preguntas clave como <em>¿quién?, ¿qué?, ¿dónde?, ¿cuándo? y ¿cuánto?</em>.</p>
+    
+      </section>
+
+      <section id="p5" class="pregunta">
+        <h3>1.5 Requisitos que debe cumplir la información para ser útil.</h3>
+           <p>Para que la información deje de ser un simple conjunto de datos estructurados y se convierta en un activo estratégico real para la empresa, debe cumplir con una serie de <strong>requisitos y propiedades de calidad esenciales</strong>:</p>
+
+        <ul class="respuestas-lista">
+          <li><strong>Pertinencia (Relevancia):</strong> La información debe adaptarse a las necesidades específicas de la persona que la recibe. Debe responder directamente al problema o a la tarea que se está ejecutando, evitando la acumulación de datos innecesarios.</li>
+        <li><strong>Oportunidad:</strong> Debe estar disponible en el momento exacto en que se requiere tomar la decisión. Una información excelente pero entregada a destiempo pierde por completo su valor operativo.</li>
+        <li><strong>Precisión (Exactitud):</strong> Debe estar libre de errores significativos y ser lo suficientemente detallada para el nivel en el que se va a utilizar. Datos inexactos conducen de forma inevitable a decisiones equivocadas.</li>
+        <li><strong>Integridad (Completitud):</strong> Debe proporcionar una visión global y suficiente de la situación. La información incompleta puede sesgar el análisis y ocultar riesgos importantes.</li>
+        <li><strong>Claridad (Comprensibilidad):</strong> Debe presentarse en un formato e idioma que el usuario pueda interpretar de forma rápida y sin ambigüedades. Un exceso de tecnicismos o una mala visualización anulan su utilidad.</li>
+        <li><strong>Fiabilidad (Veracidad):</strong> La fuente de donde provienen los datos y los procesos de transformación aplicados por el sistema deben ser de confianza, garantizando que la información es un fiel reflejo de la realidad.</li>
+        </ul>
+      </section>
+
+      <section id="p6" class="pregunta">
+        <h3>1.6 Posibles problemas que nos puede dar la información.</h3>
+            <p>Disponer de un Sistema de Información no garantiza el éxito de forma automática. Si la información no se gestiona de manera correcta, puede convertirse en una fuente de riesgos para la empresa. Los principales problemas que puede generar la información son:</p>
+
+        <ul class="respuestas-lista">
+           <li><strong>Sobrecarga de información (Infoxicación):</strong> Recibir un volumen excesivo de datos imposibilita su análisis. El usuario se satura, lo que ralentiza la toma de decisiones o provoca parálisis.</li>
+        <li><strong>Información desactualizada (Obsolescencia):</strong> El mercado se mueve rápido. Tomar decisiones hoy utilizando reportes o datos del mes pasado puede llevar a estrategias completamente desalineadas con la realidad actual.</li>
+        <li><strong>Inexactitud y errores (Sesgo o fallos):</strong> Datos mal introducidos, duplicados o manipulados generan reportes erróneos. Esto destruye la confianza en el sistema y provoca pérdidas económicas por malas decisiones.</li>
+        <li><strong>Asimetría de la información:</strong> Ocurre cuando un departamento o persona oculta o retiene datos clave para el resto de la organización, rompiendo la sincronía y el trabajo en equipo.</li>
+        <li><strong>Vulnerabilidad y brechas de seguridad:</strong> Si la información cae en manos equivocadas (competidores o ciberdelincuentes) debido a una mala protección, la empresa se enfrenta a problemas legales, pérdida de ventaja competitiva y daños de reputación.</li>
+        <li><strong>Falta de formato o incompatibilidad:</strong> Cuando la información llega estructurada en formatos indescifrables o programas que el usuario no sabe utilizar, su utilidad real es nula.</li>
+    
+        </ul>
+      </section>
+
+      <section id="p7" class="pregunta">
+        <h3>
+          1.7 ¿Diferentes necesidades de Información en relación al nivel
+          organizativo en la empresa?
+        </h3>
+         <p>La información no se consume de la misma manera en toda la organización. Las necesidades de datos varían drásticamente según la responsabilidad y las funciones de cada persona. Clásicamente, la estructura de la empresa se divide en <strong>tres niveles organizativos</strong>, cada uno con requisitos de información específicos:</p>
+    
+        <ul class="respuestas-lista">
+
+        <li><strong>Nivel Estratégico (Alta Dirección):</strong> 
+            <ul >
+                <li><em>Quiénes son:</em> Directores generales, presidentes y junta directiva.</li>
+                <li><em>Qué necesitan:</em> Información global, sintética, agregada y a largo plazo. Les interesan las tendencias del mercado, variables macroeconómicas, la situación de la competencia y el rendimiento general de la empresa.</li>
+                <li><em>Objetivo:</em> Definir el rumbo de la organización, la visión de futuro y la toma de decisiones no estructuradas.</li>
+            </ul>
+        </li>
+        <li><strong>Nivel Táctico (Mandos Medios):</strong> 
+            <ul>
+                <li><em>Quiénes son:</em> Directores de departamento, gerentes de área y jefes de división.</li>
+                <li><em>Qué necesitan:</em> Información resumida pero con posibilidad de detalle, enfocada a medio plazo. Requieren reportes de cumplimiento de presupuestos, rendimiento del personal, métricas de ventas mensuales y eficiencia de producción.</li>
+                <li><em>Objetivo:</em> Asignar recursos, supervisar los planes del nivel operativo y asegurar que se alineen con los objetivos estratégicos.</li>
+            </ul>
+        </li>
+        <li><strong>Nivel Operativo (Personal de Ejecución):</strong> 
+            <ul>
+                <li><em>Quiénes son:</em> Supervisores de línea, operarios, administrativos y vendedores.</li>
+                <li><em>Qué necesitan:</em> Información detallada, exacta, en tiempo real y a muy corto plazo (el día a día). Ejemplos: el inventario actual de un producto, el número de facturas emitidas hoy o el estado de un pedido específico.</li>
+                <li><em>Objetivo:</em> Ejecutar las tareas diarias y rutinarias de forma eficiente, siguiendo reglas y procedimientos ya establecidos de manera estructurada.</li>
+            </ul>
+        </li>
+    </ul>
+      </section>
+
+       <section id="p8" class="pregunta">
+        <h3>1.8 ¿Definición de un sistema de información?</h3>
+        <p>
+          Un <strong>Sistema de Información (SI)</strong> es un conjunto formal y organizado de componentes (personas, datos, procesos y recursos tecnológicos) que interactúan entre sí. Su función principal es recopilar, procesar, almacenar y distribuir datos de manera estructurada para transformarlos en información útil que respalde las operaciones cotidianas, la gestión de recursos y las directrices estratégicas de una organización.
+        </p>
+      </section>
+
+      <section id="p9" class="pregunta">
+        <h3>1.9 ¿Propósito de un sistema de información?</h3>
+        <p>
+          El propósito fundamental de un SI es conectar a las personas con la información adecuada en el momento justo. Busca eliminar el desorden de los datos dispersos, automatizar las tareas rutinarias de las áreas internas, garantizar que la empresa funcione sin contratiempos operativos y, sobre todo, proporcionar un entorno con certezas absolutas para una óptima toma de decisiones cotidianas y estratégicas.
+        </p>
+      </section>
+
+      <section id="p10" class="pregunta">
+        <h3>1.10 ¿Qué es la regla "GIGO"?</h3>
+        <p>
+          La regla <strong>"GIGO"</strong> responde a las siglas en inglés <em>"Garbage In, Garbage Out"</em> (<strong>Si entra basura, sale basura</strong>). Es un principio fundamental de la gestión informática que establece que la calidad de la salida de un sistema depende estrictamente de la calidad de sus entradas. Si se introducen datos incorrectos, inconsistentes o erróneos en el sistema, los reportes finales, análisis y balances resultantes serán igualmente erróneos e inservibles para guiar el negocio.
+        </p>
+      </section>
+
+      <section id="p11" class="pregunta">
+        <h3>1.11 ¿Dónde está el verdadero valor de un S.I.?</h3>
+        <p>
+          El verdadero valor de un SI no reside en la complejidad de su código informático o en la sofisticación de su tecnología, sino en su capacidad real para <strong>evitar que la empresa vaya a ciegas</strong>. Su valor estratégico se consolida al permitir reaccionar con rapidez frente a la competencia directa, reducir los costes logísticos u operativos mediante la optimización de los recursos existentes y transformar la simple intuición de los directivos en decisiones empresariales firmes respaldadas por datos tangibles.
+        </p>
+      </section>
+
+      <section id="p12" class="pregunta">
+        <h3>1.12 ¿Cómo influye el factor humano para el éxito de un S.I.?</h3>
+        <p>
+          El factor humano es el componente más crítico y el que determina en última instancia el éxito o fracaso de la implantación de un SI. La infraestructura tecnológica por sí sola no genera ningún valor para el negocio; son las personas quienes alimentan el sistema con disciplina técnica, interpretan de forma analítica sus salidas y adoptan de forma voluntaria las herramientas en sus procesos rutinarios. Fenómenos como la resistencia al cambio o la falta de capacitación del personal pueden neutralizar por completo las ventajas del software más costoso del mercado.
+        </p>
+     
+    </main>
+  </body>
+</html>
