@@ -1,6 +1,8 @@
 package Pojo;
 
-public class Partido {
+import java.io.Serializable;
+
+public class Partido implements Serializable {
 
 	private String equipoLocal;
 	private String equipoVisitante ;
