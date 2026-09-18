@@ -1,0 +1,19 @@
+interface PersonajeLOR {
+    nombre: string;
+    pv: number;
+}
+
+const nuevoPersonaje: PersonajeLOR = {
+    nombre: 'Strider',
+    pv: 50
+};
+
+function curar(personaje: PersonajeLOR, puntosCuracion: number): void {
+    personaje.pv += puntosCuracion;
+    
+    console.log('Personaje actualizado:', personaje);
+}
+
+console.log('Estado inicial:', nuevoPersonaje);
+
+curar(nuevoPersonaje, 20);
