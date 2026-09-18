@@ -1,4 +1,4 @@
-package ejercicio1;
+package ejercicio6;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,10 +9,10 @@ public class Ejer6 {
 
         try {
 
-            ProcessBuilder pb = new ProcessBuilder("ejemplo.bat");
+            ProcessBuilder pb = new ProcessBuilder("src/ejercicio6/ejemplo.bat");
 
-            pb.redirectOutput(new File("salida.txt"));
-            pb.redirectError(new File("errores.txt"));
+            pb.redirectOutput(new File("src/ejercicio6/salida.txt"));
+            pb.redirectError(new File("src/ejercicio6/errores.txt"));
 
             Process processo = pb.start();
 
