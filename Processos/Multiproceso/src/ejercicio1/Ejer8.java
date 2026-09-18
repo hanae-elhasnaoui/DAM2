@@ -2,6 +2,12 @@ package ejercicio1;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,21 +16,28 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
-public class Ejer8 extends JFrame {
+public class Ejer8 extends JFrame  implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textFieldP1;
-	private JTextField textField_P2;
-	private JTextField textField_P3;
+	private JTextField txtIpconfig;
+	private JTextField txtPrueba;
 	private JTextField textPID1;
 	private JTextField textPID2;
 	private JTextField textPID3;
 	private JTextField textPIDPadre1;
 	private JTextField textPIDPadre2;
 	private JTextField textPIDPadre3;
-
+	private JButton btnStartP2;
+	private JButton btnStartP1;
+	private JButton btnStartP3;
+	private JTextArea Resultado2 ;
+	private JTextArea Resultado1;
+	private JScrollPane scrollPane;
 	/**
 	 * Launch the application.
 	 */
@@ -46,45 +59,51 @@ public class Ejer8 extends JFrame {
 	 */
 	public Ejer8() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 466);
+		setBounds(100, 100, 636, 470);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		textFieldP1 = new JTextField();
-		textFieldP1.setBounds(83, 38, 86, 20);
+		textFieldP1.setText("taskmgr");
+		textFieldP1.setBounds(179, 37, 86, 20);
 		contentPane.add(textFieldP1);
 		textFieldP1.setColumns(10);
 		
-		textField_P2 = new JTextField();
-		textField_P2.setColumns(10);
-		textField_P2.setBounds(199, 38, 86, 20);
-		contentPane.add(textField_P2);
+		txtIpconfig = new JTextField();
+		txtIpconfig.setText("ipconfig");
+		txtIpconfig.setColumns(10);
+		txtIpconfig.setBounds(295, 37, 86, 20);
+		contentPane.add(txtIpconfig);
 		
-		textField_P3 = new JTextField();
-		textField_P3.setColumns(10);
-		textField_P3.setBounds(314, 38, 86, 20);
-		contentPane.add(textField_P3);
+		txtPrueba = new JTextField();
+		txtPrueba.setText("Prueba");
+		txtPrueba.setColumns(10);
+		txtPrueba.setBounds(410, 37, 86, 20);
+		contentPane.add(txtPrueba);
 		
-		JButton btnStartP1 = new JButton("Start");
-		btnStartP1.setBounds(83, 69, 89, 23);
+		btnStartP1 = new JButton("Start");
+		btnStartP1.setBounds(179, 68, 89, 23);
 		contentPane.add(btnStartP1);
+		btnStartP1.addActionListener(this);
 		
-		JButton btnStartP2 = new JButton("Start");
-		btnStartP2.setBounds(196, 69, 89, 23);
+		btnStartP2 = new JButton("Start");
+		btnStartP2.setBounds(292, 68, 89, 23);
 		contentPane.add(btnStartP2);
+		btnStartP2.addActionListener(this);
 		
-		JButton btnStartP3 = new JButton("Start");
-		btnStartP3.setBounds(314, 69, 89, 23);
+		 btnStartP3 = new JButton("Start");
+		btnStartP3.setBounds(410, 68, 89, 23);
 		contentPane.add(btnStartP3);
+		btnStartP3.addActionListener(this);
 		
 		JLabel lblPID = new JLabel("PID");
-		lblPID.setBounds(10, 118, 46, 14);
+		lblPID.setBounds(64, 114, 46, 14);
 		contentPane.add(lblPID);
 		
 		JLabel lblPidPadre = new JLabel("PID Padre");
-		lblPidPadre.setBounds(10, 143, 76, 14);
+		lblPidPadre.setBounds(64, 139, 76, 14);
 		contentPane.add(lblPidPadre);
 		
 		JLabel lblResultado = new JLabel("Resultado");
@@ -93,49 +112,150 @@ public class Ejer8 extends JFrame {
 		
 		textPID1 = new JTextField();
 		textPID1.setEnabled(false);
-		textPID1.setBounds(83, 115, 86, 20);
+		textPID1.setBounds(179, 114, 86, 20);
 		contentPane.add(textPID1);
 		textPID1.setColumns(10);
 		
 		textPID2 = new JTextField();
 		textPID2.setEnabled(false);
 		textPID2.setColumns(10);
-		textPID2.setBounds(199, 115, 86, 20);
+		textPID2.setBounds(295, 114, 86, 20);
 		contentPane.add(textPID2);
 		
 		textPID3 = new JTextField();
 		textPID3.setEnabled(false);
 		textPID3.setColumns(10);
-		textPID3.setBounds(314, 115, 86, 20);
+		textPID3.setBounds(410, 114, 86, 20);
 		contentPane.add(textPID3);
 		
 		textPIDPadre1 = new JTextField();
 		textPIDPadre1.setEnabled(false);
 		textPIDPadre1.setColumns(10);
-		textPIDPadre1.setBounds(83, 143, 86, 20);
+		textPIDPadre1.setBounds(179, 142, 86, 20);
 		contentPane.add(textPIDPadre1);
 		
 		textPIDPadre2 = new JTextField();
 		textPIDPadre2.setEnabled(false);
 		textPIDPadre2.setColumns(10);
-		textPIDPadre2.setBounds(199, 143, 86, 20);
+		textPIDPadre2.setBounds(295, 142, 86, 20);
 		contentPane.add(textPIDPadre2);
 		
 		textPIDPadre3 = new JTextField();
 		textPIDPadre3.setEnabled(false);
 		textPIDPadre3.setColumns(10);
-		textPIDPadre3.setBounds(314, 143, 86, 20);
+		textPIDPadre3.setBounds(410, 142, 86, 20);
 		contentPane.add(textPIDPadre3);
 		
-		JTextArea Resultado2 = new JTextArea();
-		Resultado2.setEnabled(false);
-		Resultado2.setBounds(267, 181, 132, 230);
-		contentPane.add(Resultado2);
+		 Resultado1 = new JTextArea();
+		 Resultado1.setEnabled(false);
+		 Resultado1.setBounds(93, 181, 243, 230);
+		 contentPane.add(Resultado1);
 		
-		JTextArea Resultado1 = new JTextArea();
-		Resultado1.setEnabled(false);
-		Resultado1.setBounds(93, 181, 164, 230);
-		contentPane.add(Resultado1);
+		scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(381, 192, 196, 219);
+		contentPane.add(scrollPane);
+		
+		Resultado2 = new JTextArea();
+		scrollPane.setViewportView(Resultado2);
+		Resultado2.setEnabled(false);
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+		Object src = e.getSource();
+
+		if (src == btnStartP1) {
+			
+			createProcesso1();
+
+		}else if (src == btnStartP2) {
+			createProcesso2();
+			
+		}else if (src == btnStartP3) {
+			createProcesso3();
+		}
+	}
+
+	private void createProcesso3() {
+		try {
+			textPID3.setText("");
+			//Resultado2.setText("");
+			
+			textPIDPadre3.setText(String.valueOf(ProcessHandle.current().pid()));
+			
+			String programa = txtPrueba.getText();
+			StringBuilder pidsAcumulados = new StringBuilder();
+			StringBuilder salidaTotal = new StringBuilder();
+			
+			for (int i = 0; i < 5; i++) {
+				ProcessBuilder pb = new ProcessBuilder(programa + ".exe");
+				Process p = pb.start();
+				
+				pidsAcumulados.append(p.pid()).append(" ");
+				
+				OutputStreamWriter escritor = new OutputStreamWriter(p.getOutputStream());
+				escritor.write("Prueba\n");
+				escritor.flush();
+				escritor.close();
+				
+				BufferedReader lector = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				String linea;
+				while ((linea = lector.readLine()) != null) {
+					salidaTotal.append(linea).append("\n");
+				}
+				lector.close();
+				
+				p.waitFor();
+			}
+			
+			textPID3.setText(pidsAcumulados.toString().trim());
+			Resultado2.setText(salidaTotal.toString());
+			
+		} catch (IOException | InterruptedException ex) {
+			Resultado2.setText("Error en Proceso 3:\n" + ex.getMessage());
+		}
+	}
+
+	private void createProcesso2() {
+		try {
+			Resultado1.setText("");
+			String comando = txtIpconfig.getText();
+			
+			ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c", comando);
+			Process p=pb.start();
+			
+			textPID2.setText(String.valueOf(p.pid()));
+			textPIDPadre2.setText(String.valueOf(ProcessHandle.current().pid()));
+			
+			BufferedReader lector = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String linea;
+			StringBuilder salida = new StringBuilder();
+			while ((linea = lector.readLine()) != null) {
+				salida.append(linea).append("\n");
+			}
+			lector.close();
+			
+			Resultado1.setText(salida.toString());
+		} catch (IOException ex) {
+			Resultado1.setText("Error en CMD:\n" + ex.getMessage());
+		}		
+	}
+
+	private void createProcesso1() {
+		try {
+			String programa = textFieldP1.getText();
+			ProcessBuilder pb = new ProcessBuilder(programa);
+			Process p=pb.start();
+			
+			textPID1.setText(String.valueOf(p.pid()));
+			
+			textPIDPadre1.setText(String.valueOf(ProcessHandle.current().pid()));
+			Resultado1.setText("Programa del sistema\niniciado correctamente.");
+		} catch (IOException ex) {
+			Resultado1.setText("Error al iniciar el programa:\n" + ex.getMessage());
+		}		
 	}
 }
