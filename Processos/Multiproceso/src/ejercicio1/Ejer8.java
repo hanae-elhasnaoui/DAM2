@@ -38,6 +38,7 @@ public class Ejer8 extends JFrame  implements ActionListener {
 	private JTextArea Resultado2 ;
 	private JTextArea Resultado1;
 	private JScrollPane scrollPane;
+	private String res="";
 	/**
 	 * Launch the application.
 	 */
@@ -181,8 +182,8 @@ public class Ejer8 extends JFrame  implements ActionListener {
 
 	private void createProcesso3() {
 		try {
-			
-			Resultado2.setText(txtPrueba.getText());
+			res+=txtPrueba.getText().toString()+"\n";
+			Resultado2.setText(res);
 
 			textPID3.setText("");
 			Resultado1.setText("");
