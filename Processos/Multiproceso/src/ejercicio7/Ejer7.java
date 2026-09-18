@@ -1,7 +1,9 @@
 package ejercicio7;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -23,14 +25,27 @@ public class Ejer7 {
 
 		try {
 			ProcessBuilder pb = new ProcessBuilder("java", "ejercicio7.EjemploLectura");
-			pb.redirectOutput(ProcessBuilder.Redirect.INHERIT); 
+			//pb.directory(new File(".")); 
 			Process procesoHijo = pb.start();
 
 			
 			PrintWriter es=new PrintWriter(procesoHijo.getOutputStream(),true);
 			es.println(txt);
+			es.close();
+			
+			BufferedReader lector = new BufferedReader(new InputStreamReader(procesoHijo.getInputStream()));
+			String linea;
+			
+			System.out.println("\n--- Salida recibida del hijo ---");
+			while ((linea = lector.readLine()) != null) {
+				System.out.println(linea);
+			}
+			lector.close();
+			procesoHijo.waitFor();
 			
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} 
 	}

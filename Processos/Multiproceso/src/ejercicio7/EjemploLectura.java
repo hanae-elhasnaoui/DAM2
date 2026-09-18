@@ -8,7 +8,7 @@ public class EjemploLectura {
 
 		Scanner teclado = new Scanner(System.in);
 
-		if (teclado.hasNext()) {
+		if (teclado.hasNextLine()) {
 
 			String txtInput = teclado.nextLine();
 
