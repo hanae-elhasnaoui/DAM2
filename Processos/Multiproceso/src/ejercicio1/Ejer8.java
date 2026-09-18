@@ -125,7 +125,7 @@ public class Ejer8 extends JFrame  implements ActionListener {
 		textPID3 = new JTextField();
 		textPID3.setEnabled(false);
 		textPID3.setColumns(10);
-		textPID3.setBounds(410, 114, 86, 20);
+		textPID3.setBounds(410, 114, 155, 20);
 		contentPane.add(textPID3);
 		
 		textPIDPadre1 = new JTextField();
@@ -143,7 +143,7 @@ public class Ejer8 extends JFrame  implements ActionListener {
 		textPIDPadre3 = new JTextField();
 		textPIDPadre3.setEnabled(false);
 		textPIDPadre3.setColumns(10);
-		textPIDPadre3.setBounds(410, 142, 86, 20);
+		textPIDPadre3.setBounds(410, 142, 155, 20);
 		contentPane.add(textPIDPadre3);
 		
 		 Resultado1 = new JTextArea();
@@ -181,8 +181,11 @@ public class Ejer8 extends JFrame  implements ActionListener {
 
 	private void createProcesso3() {
 		try {
+			
+			Resultado2.setText(txtPrueba.getText());
+
 			textPID3.setText("");
-			//Resultado2.setText("");
+			Resultado1.setText("");
 			
 			textPIDPadre3.setText(String.valueOf(ProcessHandle.current().pid()));
 			
@@ -212,10 +215,10 @@ public class Ejer8 extends JFrame  implements ActionListener {
 			}
 			
 			textPID3.setText(pidsAcumulados.toString().trim());
-			Resultado2.setText(salidaTotal.toString());
+			Resultado1.setText(salidaTotal.toString());
 			
 		} catch (IOException | InterruptedException ex) {
-			Resultado2.setText("Error en Proceso 3:\n" + ex.getMessage());
+			Resultado1.setText("Error en Proceso 3:\n" + ex.getMessage());
 		}
 	}
 
