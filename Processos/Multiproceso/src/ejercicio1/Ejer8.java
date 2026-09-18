@@ -146,11 +146,14 @@ public class Ejer8 extends JFrame  implements ActionListener {
 		textPIDPadre3.setColumns(10);
 		textPIDPadre3.setBounds(410, 142, 155, 20);
 		contentPane.add(textPIDPadre3);
+		 
+		 JScrollPane scrollPane_1 = new JScrollPane();
+		 scrollPane_1.setBounds(47, 193, 265, 230);
+		 contentPane.add(scrollPane_1);
 		
 		 Resultado1 = new JTextArea();
+		 scrollPane_1.setViewportView(Resultado1);
 		 Resultado1.setEnabled(false);
-		 Resultado1.setBounds(93, 181, 243, 230);
-		 contentPane.add(Resultado1);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -227,6 +230,8 @@ public class Ejer8 extends JFrame  implements ActionListener {
 		try {
 			Resultado1.setText("");
 			String comando = txtIpconfig.getText();
+			res+=comando.toString()+"\n";
+			Resultado2.setText(res);
 			
 			ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c", comando);
 			Process p=pb.start();
@@ -251,6 +256,8 @@ public class Ejer8 extends JFrame  implements ActionListener {
 	private void createProcesso1() {
 		try {
 			String programa = textFieldP1.getText();
+			res+=programa.toString()+"\n";
+			Resultado2.setText(res);
 			ProcessBuilder pb = new ProcessBuilder(programa);
 			Process p=pb.start();
 			
