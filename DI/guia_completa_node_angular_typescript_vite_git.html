@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guía completa de desarrollo web</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#1f2937;--muted:#667085;--blue:#2563eb;--dark:#172554;--border:#e5e7eb;--code:#111827}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+header{background:linear-gradient(135deg,#172554,#2563eb);color:white;padding:55px 20px}.hero,main,footer>div{max-width:1100px;margin:auto}
+h1{font-size:clamp(2rem,5vw,3.5rem);margin:0 0 10px}h2{color:var(--dark);font-size:1.9rem;margin-top:0}h3{color:#1e3a8a}
+.container{padding:30px 20px}.card,nav{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #0000000d}
+nav ul{columns:2}nav a{color:var(--blue);text-decoration:none}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.mini{border:1px solid var(--border);border-radius:12px;padding:18px;background:#fafafa}
+pre{background:var(--code);color:#e5e7eb;padding:18px;border-radius:12px;overflow:auto}code{font-family:Consolas,monospace}p code,li code{background:#eef2ff;color:#3730a3;padding:2px 5px;border-radius:4px}
+.note,.warning,.success{padding:16px;border-left:5px solid;border-radius:10px;margin:18px 0}.note{background:#eff6ff;border-color:#3b82f6}.warning{background:#fff7ed;border-color:#f97316}.success{background:#ecfdf3;border-color:#10b981}
+table{width:100%;border-collapse:collapse;background:white}th,td{border:1px solid var(--border);padding:11px;text-align:left}th{background:#eff6ff;color:#1e3a8a}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:18px 0}.flow span{background:white;border:1px solid var(--border);padding:12px;border-radius:10px}.arrow{color:var(--blue)}
+section{margin:38px 0;scroll-margin-top:20px}footer{background:#111827;color:#d1d5db;padding:30px 20px;margin-top:50px}
+.top{position:fixed;right:18px;bottom:18px;background:var(--blue);color:white;padding:10px 14px;border-radius:30px;text-decoration:none}
+@media(max-width:700px){nav ul{columns:1}.container{padding:20px 12px}table{font-size:.9rem}}
+</style>
+</head>
+<body>
+<header id="inicio"><div class="hero">
+<h1>Guía completa: Node.js, npm, Angular, TypeScript, Vite y Git</h1>
+<p>Material de estudio desde cero para entender el entorno de desarrollo web, las herramientas del curso, los comandos y tu primer programa TypeScript.</p>
+</div></header>
+
+<main class="container">
+<nav><h2>Índice</h2><ul>
+<li><a href="#mapa">Mapa general</a></li><li><a href="#node">Node.js</a></li><li><a href="#npm">npm</a></li>
+<li><a href="#ssl">strict-ssl</a></li><li><a href="#angular">Angular CLI</a></li><li><a href="#vscode">VS Code</a></li>
+<li><a href="#postman">Postman y APIs</a></li><li><a href="#git">Git y GitHub</a></li><li><a href="#json">json-server</a></li>
+<li><a href="#powershell">PowerShell</a></li><li><a href="#vite">Vite</a></li><li><a href="#ts">TypeScript</a></li>
+<li><a href="#ejemplo">Primer programa</a></li><li><a href="#guia">Guía paso a paso</a></li><li><a href="#comandos">Chuleta</a></li>
+</ul></nav>
+
+<section id="mapa"><h2>1. Mapa general</h2><div class="card">
+<div class="flow"><span><b>Node.js</b><br>Ejecuta JavaScript fuera del navegador</span><b class="arrow">→</b><span><b>npm</b><br>Instala paquetes</span><b class="arrow">→</b><span><b>Vite / Angular CLI</b><br>Herramientas de desarrollo</span></div>
+<div class="flow"><span><b>TypeScript</b><br>JavaScript con tipos</span><b class="arrow">→</b><span><b>JavaScript</b><br>El navegador lo ejecuta</span></div>
+<div class="flow"><span><b>Git</b><br>Control de versiones</span><b class="arrow">→</b><span><b>GitHub</b><br>Repositorio remoto</span></div>
+<div class="flow"><span><b>json-server</b><br>API de práctica</span><b class="arrow">→</b><span><b>Postman</b><br>Prueba de APIs</span></div>
+</div></section>
+
+<section id="node"><h2>2. Node.js</h2><div class="card">
+<p><b>Node.js</b> permite ejecutar JavaScript fuera del navegador. Es la base para muchas herramientas del desarrollo frontend.</p>
+<pre><code>node -v</code></pre><p>Comprueba la versión instalada.</p>
+</div></section>
+
+<section id="npm"><h2>3. npm</h2><div class="card">
+<p><b>npm</b> significa Node Package Manager. Sirve para instalar y administrar paquetes.</p>
+<pre><code>npm -v
+npm install nombre-del-paquete</code></pre>
+<p>Los paquetes del proyecto suelen quedar en <code>node_modules</code> y sus dependencias se registran en <code>package.json</code>.</p>
+</div></section>
+
+<section id="ssl"><h2>4. strict-ssl</h2><div class="card">
+<p>En algunos entornos con proxies o certificados corporativos puede aparecer un problema SSL.</p>
+<pre><code>npm config set strict-ssl false</code></pre>
+<div class="warning"><b>Precaución:</b> desactivar esta comprobación reduce la seguridad. Si se usa como solución temporal, vuelve a activarla:</div>
+<pre><code>npm config set strict-ssl true</code></pre>
+</div></section>
+
+<section id="angular"><h2>5. Angular CLI</h2><div class="card">
+<p><b>Angular</b> es un framework para aplicaciones web. <b>Angular CLI</b> es su herramienta de línea de comandos.</p>
+<pre><code>npm install -g @angular/cli
+ng v</code></pre>
+<p><code>-g</code> significa instalación global. <code>ng v</code> muestra información de la CLI.</p>
+</div></section>
+
+<section id="vscode"><h2>6. Visual Studio Code</h2><div class="card">
+<p>VS Code es el editor donde escribiremos el código.</p><pre><code>Ctrl + Shift + P</code></pre>
+<p>La paleta de comandos permite buscar <code>Configure Display Language</code> para cambiar el idioma.</p>
+<h3>Extensiones útiles</h3><ul><li>Bracket Pair Colorization Toggler</li><li>Auto Close Tag</li><li>Angular Snippets</li></ul>
+</div></section>
+
+<section id="postman"><h2>7. Postman y APIs</h2><div class="card">
+<p><b>Postman</b> permite probar APIs mediante peticiones HTTP.</p>
+<table><tr><th>Método</th><th>Uso</th></tr><tr><td>GET</td><td>Consultar</td></tr><tr><td>POST</td><td>Crear</td></tr><tr><td>PUT</td><td>Actualizar un recurso</td></tr><tr><td>PATCH</td><td>Actualizar parcialmente</td></tr><tr><td>DELETE</td><td>Eliminar</td></tr></table>
+</div></section>
+
+<section id="git"><h2>8. Git y GitHub</h2><div class="card">
+<p><b>Git</b> controla versiones. <b>GitHub</b> permite alojar repositorios Git y colaborar.</p>
+<pre><code>git --version
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu-correo@ejemplo.com"</code></pre>
+<div class="note">Usa tu nombre y correo reales al configurar tu propio Git. Los valores anteriores son solo ejemplos.</div>
+</div></section>
+
+<section id="json"><h2>9. json-server</h2><div class="card">
+<p><b>json-server</b> crea rápidamente una API REST falsa a partir de JSON. Es útil para practicar frontend sin backend real.</p>
+<pre><code>npm install -g json-server</code></pre>
+<p>Ejemplo de datos:</p>
+<pre><code>{
+  "usuarios": [
+    { "id": 1, "nombre": "Ana" },
+    { "id": 2, "nombre": "Luis" }
+  ]
+}</code></pre>
+</div></section>
+
+<section id="powershell"><h2>10. PowerShell</h2><div class="card">
+<p>PowerShell es una terminal de Windows.</p>
+<pre><code>Get-ExecutionPolicy
+Set-ExecutionPolicy Unrestricted</code></pre>
+<div class="warning"><b>Importante:</b> <code>Unrestricted</code> es permisivo. No lo cambies por costumbre; hazlo solo si el entorno o el curso lo requiere y entiende qué implica.</div>
+</div></section>
+
+<section id="vite"><h2>11. Vite</h2><div class="card">
+<p><b>Vite</b> proporciona un servidor de desarrollo rápido y herramientas de build para proyectos frontend.</p>
+<p>Durante el desarrollo suele aparecer:</p><pre><code>http://localhost:5173</code></pre>
+<p><b>localhost</b> = tu propio ordenador. <b>5173</b> = puerto habitual de desarrollo de Vite.</p>
+</div></section>
+
+<section id="ts"><h2>12. TypeScript desde cero</h2><div class="card">
+<p><b>TypeScript</b> está basado en JavaScript y añade un sistema de tipos. Normalmente el código TypeScript se transforma a JavaScript para poder ejecutarse en el navegador.</p>
+<table><tr><th>Tipo</th><th>Ejemplo</th><th>Significado</th></tr>
+<tr><td>string</td><td>"Hola"</td><td>Texto</td></tr><tr><td>number</td><td>95</td><td>Número</td></tr>
+<tr><td>boolean</td><td>true</td><td>Verdadero/falso</td></tr><tr><td>number | string</td><td>95 o "FULL"</td><td>Número o texto</td></tr></table>
+</div></section>
+
+<section id="ejemplo"><h2>13. Primer programa TypeScript</h2><div class="card">
+<pre><code>/*
+01-basic-types.ts
+COMENTARIO - PRIMER PROGRAMA
+*/
+
+let nombre: string = '2DAM';
+let hp: number|string = 95;
+let estaVivo: boolean = true;
+
+console.log(hp);
+hp = 'FULL';
+console.log(nombre, hp, estaVivo);
+console.log({nombre, hp, estaVivo});</code></pre>
+<h3>Explicación</h3>
+<ul>
+<li><code>let nombre: string = '2DAM';</code> crea una variable de texto.</li>
+<li><code>let hp: number|string = 95;</code> permite número o texto: es un tipo unión.</li>
+<li><code>let estaVivo: boolean = true;</code> guarda verdadero/falso.</li>
+<li><code>console.log(hp);</code> muestra el valor en consola.</li>
+<li><code>hp = 'FULL';</code> es válido porque <code>hp</code> admite <code>number|string</code>.</li>
+<li><code>console.log({nombre, hp, estaVivo});</code> muestra un objeto usando propiedades abreviadas.</li>
+</ul>
+<p>La última línea equivale aproximadamente a:</p>
+<pre><code>console.log({
+  nombre: nombre,
+  hp: hp,
+  estaVivo: estaVivo
+});</code></pre>
+</div></section>
+
+<section id="guia"><h2>14. Guía práctica completa</h2><div class="card">
+<h3>Paso 1 — Comprobar Node y npm</h3><pre><code>node -v
+npm -v</code></pre>
+<h3>Paso 2 — Angular CLI, si lo necesitas</h3><pre><code>npm install -g @angular/cli
+ng v</code></pre>
+<h3>Paso 3 — Git</h3><pre><code>git --version
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu-correo@ejemplo.com"</code></pre>
+<h3>Paso 4 — json-server, si el curso lo usa</h3><pre><code>npm install -g json-server</code></pre>
+<h3>Paso 5 — Crear proyecto Vite</h3><pre><code>npm create vite@latest</code></pre>
+<p>Selecciona <b>Vanilla</b> y después <b>TypeScript</b>.</p>
+<h3>Paso 6 — Entrar, instalar y arrancar</h3><pre><code>cd nombre-del-proyecto
+npm install
+npm run dev</code></pre>
+<h3>Paso 7 — Abrir el navegador</h3><pre><code>http://localhost:5173</code></pre>
+<div class="success"><b>Objetivo:</b> tener un proyecto TypeScript funcionando, poder editar el código y ver los cambios desde el navegador.</div>
+</div></section>
+
+<section id="comandos"><h2>15. Chuleta rápida</h2><div class="card">
+<table><tr><th>Comando</th><th>Función</th></tr>
+<tr><td><code>node -v</code></td><td>Versión de Node.js</td></tr>
+<tr><td><code>npm -v</code></td><td>Versión de npm</td></tr>
+<tr><td><code>npm install</code></td><td>Instalar dependencias</td></tr>
+<tr><td><code>npm run dev</code></td><td>Arrancar desarrollo</td></tr>
+<tr><td><code>npm create vite@latest</code></td><td>Crear proyecto Vite</td></tr>
+<tr><td><code>npm install -g @angular/cli</code></td><td>Instalar Angular CLI</td></tr>
+<tr><td><code>ng v</code></td><td>Ver información de Angular CLI</td></tr>
+<tr><td><code>git --version</code></td><td>Versión de Git</td></tr>
+<tr><td><code>npm install -g json-server</code></td><td>Instalar json-server</td></tr>
+<tr><td><code>Get-ExecutionPolicy</code></td><td>Consultar política de PowerShell</td></tr>
+</table></div></section>
+
+<section><h2>16. Resumen para memorizar</h2><div class="card">
+<p><b>Node.js</b> ejecuta JavaScript fuera del navegador.</p>
+<p><b>npm</b> instala paquetes.</p>
+<p><b>Angular CLI</b> ayuda a crear y administrar proyectos Angular.</p>
+<p><b>Vite</b> proporciona un entorno rápido de desarrollo frontend.</p>
+<p><b>TypeScript</b> añade tipos a JavaScript.</p>
+<p><b>Git</b> controla versiones.</p>
+<p><b>GitHub</b> aloja y comparte repositorios.</p>
+<p><b>json-server</b> simula una API.</p>
+<p><b>Postman</b> prueba APIs.</p>
+<p><b>VS Code</b> es el editor donde escribes el código.</p>
+</div></section>
+</main>
+<a class="top" href="#inicio">↑ Inicio</a>
+<footer><div><b>Guía de estudio de desarrollo web</b><br>HTML autocontenido, sin librerías externas.</div></footer>
+</body>
+</html>
