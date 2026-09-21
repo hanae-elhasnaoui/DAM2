@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="usr_name">name</string>
+    <string name="usr_psd">ex:2AKDJ</string>
+    <string name="btn_login">Login</string>
+
+</resources>
