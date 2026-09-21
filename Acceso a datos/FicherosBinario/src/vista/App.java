@@ -36,6 +36,7 @@ public class App extends JFrame implements ActionListener {
 	private JButton btnCargar;
 	private JButton btnGuardar;
 	private static DefaultTableModel modeloTabla;
+	private static ArrayList<Partido> partidos = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -151,39 +152,107 @@ public class App extends JFrame implements ActionListener {
 
 		if (src == btnCargar) {
 
-			IllenarTabla();
+			llenarTabla();
 
 		} else if (src == btnAnadir) {
 
+			validarDatos();
+
 		} else if (src == btnGuardar) {
-			boolean test = modelo.GestionPartidos.guardarPartidos();
-			
-			if (test) {
-				javax.swing.JOptionPane.showMessageDialog(null, "Los partidos se han guardado correctamente",
-						"Guardado completo", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-			}else {
-				javax.swing.JOptionPane.showMessageDialog(
-		                null, 
-		                "Hubo un error al intentar escribir en el archivo.", 
-		                "Error de Guardado", 
-		                javax.swing.JOptionPane.ERROR_MESSAGE
-		            );
-			}
+
+			GuardarPartidos();
+
 		}
 	}
 
-	private void IllenarTabla() {
+	private void GuardarPartidos() {
+		boolean test = modelo.GestionPartidos.guardarPartidos();
 
-		ArrayList<Partido> partidos = GestionPartidos.cargarPartidos();
+		if (test) {
+			javax.swing.JOptionPane.showMessageDialog(null, "Los partidos se han guardado correctamente",
+					"Guardado completo", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+		} else {
+			javax.swing.JOptionPane.showMessageDialog(null, "Hubo un error al intentar escribir en el archivo.",
+					"Error de Guardado", javax.swing.JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	private void validarDatos() {
+		String equipoLocal = textEqLocal.getText().trim();
+		String equipoVisitante = textVisite.getText().trim();
+		String golesLocal = textgolesLocal.getText().trim();
+		String golesVisitante = textGolesVisitante.getText().trim();
+		String lugar = textlugar.getText().trim();
+		String fecha = textFecha.getText().trim();
+
+		String regixEq = "[a-zA-Z0-9]{1,20}";
+		String regixGol = "[0-9]{1,2}";
+		String regixFecha = "(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{2}";
+		boolean correcto = true;
+		String message = "";
+
+		if (!equipoLocal.matches(regixEq)) {
+		    correcto = false;
+		    message = "El equipo local debe tener entre 1 y 20 caracteres y solo puede contener letras y números.";
+
+		} else if (!equipoVisitante.matches(regixEq)) {
+		    correcto = false;
+		    message = "El equipo visitante debe tener entre 1 y 20 caracteres y solo puede contener letras y números.";
+
+		} else if (!golesLocal.matches(regixGol)) {
+		    correcto = false;
+		    message = "Los goles locales deben ser un número de 1 o 2 dígitos.";
+
+		} else if (!golesVisitante.matches(regixGol)) {
+		    correcto = false;
+		    message = "Los goles visitantes deben ser un número de 1 o 2 dígitos.";
+
+		} else if (!lugar.matches(regixEq)) {
+		    correcto = false;
+		    message = "El lugar debe tener entre 1 y 20 caracteres y solo puede contener letras y números.";
+
+		} else if (!fecha.matches(regixFecha)) {
+		    correcto = false;
+		    message = "La fecha debe tener el formato dd/MM/yy.";
+		}
+		if (correcto) {
+			Partido partido = new Partido(equipoLocal, equipoVisitante, golesLocal, golesVisitante, lugar, fecha);
+
+			GestionPartidos.getPartidos().add(partido);
+
+			Object[] fila = { partido.getEquipoLocal(), partido.getEquipoVisitante(), partido.getGolesLocal(),
+					partido.getGolesVisitante(), partido.getLugar(), partido.getFecha() };
+
+			modeloTabla.addRow(fila);
+
+			textEqLocal.setText("");
+			textVisite.setText("");
+			textgolesLocal.setText("");
+			textGolesVisitante.setText("");
+			textlugar.setText("");
+			textFecha.setText("");
+
+			JOptionPane.showMessageDialog(this, "Partido añadido correctamente.", "Añadir",
+					JOptionPane.INFORMATION_MESSAGE);
+		}else {
+			JOptionPane.showMessageDialog(this, message, "Error",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+
+	}
+
+	private void llenarTabla() {
+
+		partidos = GestionPartidos.cargarPartidos();
+		modeloTabla.setRowCount(0);
+
 		for (Partido p : partidos) {
 			Object[] fila = { p.getEquipoLocal(), p.getEquipoVisitante(), p.getGolesLocal(), p.getGolesVisitante(),
 					p.getLugar(), p.getFecha() };
 			modeloTabla.addRow(fila);
 		}
-		JOptionPane.showMessageDialog(this, "Se han cargado en memoria ", "Mensaje",
-				JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Se han cargado en memoria ", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 
 	}
-	
 
 }

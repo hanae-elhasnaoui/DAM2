@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía completa y detallada — Java, Python, TypeScript y Kotlin</title>
+<style>
+:root{
+  --bg:#f5f7fb;--card:#fff;--text:#202938;--muted:#667085;
+  --primary:#2563eb;--dark:#172554;--border:#dfe5ee;
+  --code:#0f172a;--codeText:#e5e7eb;--blueSoft:#eff6ff;
+  --green:#059669;--orange:#ea580c;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.72}
+header{background:linear-gradient(135deg,#172554,#2563eb);color:#fff;padding:60px 20px}
+.hero,main,footer>div{max-width:1180px;margin:auto}
+h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.1;margin:0 0 18px}
+h2{font-size:2rem;color:var(--dark);border-bottom:2px solid #dbeafe;padding-bottom:8px}
+h3{color:#1e3a8a;margin-top:28px}
+h4{color:#334155}
+main{padding:30px 20px}
+nav,.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:25px;margin:20px 0;box-shadow:0 8px 25px rgba(15,23,42,.07)}
+nav ul{columns:2}nav li{margin:6px 0}nav a{color:var(--primary);text-decoration:none}
+nav a:hover{text-decoration:underline}
+section{margin:48px 0;scroll-margin-top:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.mini{background:#fafafa;border:1px solid var(--border);border-radius:12px;padding:18px}
+.badge{display:inline-block;background:#dbeafe;color:#1d4ed8;padding:5px 10px;border-radius:999px;font-size:.8rem;font-weight:bold}
+table{width:100%;border-collapse:collapse;background:#fff;margin:20px 0}
+th,td{border:1px solid var(--border);padding:12px;text-align:left;vertical-align:top}
+th{background:var(--blueSoft);color:#1e3a8a}
+pre{background:var(--code);color:var(--codeText);padding:18px;border-radius:12px;overflow:auto;font-size:.92rem}
+code{font-family:Consolas,Monaco,monospace}
+:not(pre)>code{background:#eef2ff;color:#3730a3;padding:2px 6px;border-radius:5px}
+.note,.warning,.success,.tip{padding:16px 18px;border-left:5px solid;border-radius:10px;margin:20px 0}
+.note{background:#eff6ff;border-color:#3b82f6}.warning{background:#fff7ed;border-color:#f97316}
+.success{background:#ecfdf3;border-color:#10b981}.tip{background:#f5f3ff;border-color:#7c3aed}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.flow span{background:#fff;border:1px solid var(--border);padding:13px;border-radius:10px}
+.arrow{color:var(--primary);font-weight:bold}
+.lang{border-top:6px solid var(--primary)}
+.small{color:var(--muted)}
+.compare{overflow-x:auto}
+.top{position:fixed;right:18px;bottom:18px;background:var(--primary);color:#fff;padding:10px 14px;border-radius:30px;text-decoration:none;box-shadow:0 5px 18px #0003}
+footer{background:#111827;color:#d1d5db;padding:32px 20px;margin-top:60px}
+@media(max-width:750px){nav ul{columns:1}main{padding:20px 12px}.compare{font-size:.9rem}}
+</style>
+</head>
+
+<body>
+<header id="inicio">
+<div class="hero">
+<span class="badge">GUÍA DE ESTUDIO — NIVEL DETALLADO</span>
+<h1>Java vs Python vs TypeScript vs Kotlin</h1>
+<p>Comparación profunda de cuatro lenguajes de programación: conceptos fundamentales, sintaxis, tipos, variables, operadores, control de flujo, funciones, colecciones, POO, interfaces, genéricos, errores, asincronía, módulos, herramientas, memoria, rendimiento y casos de uso.</p>
+</div>
+</header>
+
+<main>
+
+<nav>
+<h2>Índice completo</h2>
+<ul>
+<li><a href="#idea">1. La idea fundamental</a></li>
+<li><a href="#comparacion">2. Tabla general</a></li>
+<li><a href="#ejecucion">3. ¿Cómo se ejecuta cada lenguaje?</a></li>
+<li><a href="#java">4. Java en detalle</a></li>
+<li><a href="#python">5. Python en detalle</a></li>
+<li><a href="#typescript">6. TypeScript en detalle</a></li>
+<li><a href="#kotlin">7. Kotlin en detalle</a></li>
+<li><a href="#tipos">8. Tipos de datos</a></li>
+<li><a href="#variables">9. Variables y constantes</a></li>
+<li><a href="#operadores">10. Operadores</a></li>
+<li><a href="#condicionales">11. Condicionales</a></li>
+<li><a href="#bucles">12. Bucles</a></li>
+<li><a href="#funciones">13. Funciones</a></li>
+<li><a href="#arrays">14. Arrays y listas</a></li>
+<li><a href="#mapas">15. Mapas y diccionarios</a></li>
+<li><a href="#strings">16. Strings</a></li>
+<li><a href="#poo">17. POO</a></li>
+<li><a href="#interfaces">18. Interfaces y abstracción</a></li>
+<li><a href="#herencia">19. Herencia y polimorfismo</a></li>
+<li><a href="#genericos">20. Genéricos</a></li>
+<li><a href="#null">21. Null / None / undefined</a></li>
+<li><a href="#errores">22. Manejo de errores</a></li>
+<li><a href="#async">23. Asincronía y concurrencia</a></li>
+<li><a href="#modulos">24. Módulos</a></li>
+<li><a href="#memoria">25. Memoria y garbage collection</a></li>
+<li><a href="#herramientas">26. Herramientas</a></li>
+<li><a href="#web">27. Desarrollo web</a></li>
+<li><a href="#android">28. Android</a></li>
+<li><a href="#datos">29. Datos e IA</a></li>
+<li><a href="#rendimiento">30. Rendimiento</a></li>
+<li><a href="#ventajas">31. Ventajas y dificultades</a></li>
+<li><a href="#equivalencias">32. Ejemplos equivalentes</a></li>
+<li><a href="#proyecto">33. Mini proyecto comparativo</a></li>
+<li><a href="#estudio">34. Qué estudiar primero</a></li>
+<li><a href="#resumen">35. Resumen final</a></li>
+</ul>
+</nav>
+
+<section id="idea">
+<h2>1. La idea fundamental</h2>
+<div class="card">
+<p>Los cuatro lenguajes permiten resolver problemas similares, pero pertenecen a ecosistemas diferentes.</p>
+<div class="flow">
+<span><b>Java</b><br>JVM + backend + sistemas empresariales</span>
+<span><b>Python</b><br>automatización + datos + IA + backend</span>
+<span><b>TypeScript</b><br>web + JavaScript + frontend/backend</span>
+<span><b>Kotlin</b><br>JVM + Android + backend moderno</span>
+</div>
+<div class="note"><b>Idea clave:</b> no debes aprenderlos como cuatro mundos completamente separados. Variables, condiciones, bucles, funciones, clases y algoritmos son conceptos transferibles. Lo que cambia es la sintaxis y las reglas concretas.</div>
+</div>
+</section>
+
+<section id="comparacion">
+<h2>2. Tabla general</h2>
+<div class="card compare">
+<table>
+<tr><th>Característica</th><th>Java</th><th>Python</th><th>TypeScript</th><th>Kotlin</th></tr>
+<tr><td>Tipado</td><td>Estático</td><td>Dinámico</td><td>Estático sobre JavaScript</td><td>Estático</td></tr>
+<tr><td>Paradigma</td><td>Multiparadigma, fuerte orientación a objetos</td><td>Multiparadigma</td><td>Multiparadigma</td><td>Multiparadigma</td></tr>
+<tr><td>Plataforma principal</td><td>JVM</td><td>Python runtime</td><td>JavaScript runtime</td><td>JVM, Android y otros targets</td></tr>
+<tr><td>Compilación/transpilación</td><td>Java → bytecode</td><td>Compilación a bytecode interno + ejecución por runtime</td><td>TypeScript → JavaScript</td><td>Kotlin/JVM → bytecode JVM</td></tr>
+<tr><td>Curva inicial</td><td>Media</td><td>Generalmente accesible</td><td>Media si ya conoces JS; mayor si partes de cero</td><td>Media</td></tr>
+<tr><td>Web frontend</td><td>No es su uso principal</td><td>No es su uso principal</td><td>Muy importante</td><td>No es su uso principal</td></tr>
+<tr><td>Backend</td><td>Muy utilizado</td><td>Muy utilizado</td><td>Muy utilizado con Node.js y runtimes compatibles</td><td>Utilizado en JVM</td></tr>
+<tr><td>Datos/IA</td><td>Posible</td><td>Muy utilizado</td><td>Posible</td><td>Posible</td></tr>
+<tr><td>Android</td><td>Importante históricamente</td><td>No es la opción nativa principal</td><td>No es la opción nativa principal</td><td>Muy importante</td></tr>
+<tr><td>Null safety</td><td>Depende del diseño del código</td><td>None es un valor y los errores pueden aparecer en ejecución</td><td>Configuración de tipos, especialmente <code>strictNullChecks</code></td><td>Parte central del sistema de tipos</td></tr>
+</table>
+</div>
+</section>
+
+<section id="ejecucion">
+<h2>3. ¿Cómo se ejecuta cada lenguaje?</h2>
+<div class="card">
+<h3>Java</h3>
+<p>El código Java se compila normalmente a <b>bytecode</b>, que es ejecutado por la JVM (Java Virtual Machine).</p>
+<pre><code>Java
+  ↓
+Compilador javac
+  ↓
+Bytecode (.class)
+  ↓
+JVM
+  ↓
+Programa ejecutándose</code></pre>
+
+<h3>Python</h3>
+<p>Python tiene un modelo de ejecución gestionado por su runtime. En implementaciones habituales existe una fase de compilación a bytecode interno y después ejecución mediante la máquina virtual de Python.</p>
+<pre><code>Python
+  ↓
+Runtime de Python
+  ↓
+Bytecode interno / VM
+  ↓
+Programa</code></pre>
+
+<h3>TypeScript</h3>
+<p>TypeScript no se ejecuta normalmente directamente en el navegador. Se transforma a JavaScript y ese JavaScript se ejecuta en el navegador o en un runtime como Node.js.</p>
+<pre><code>TypeScript
+  ↓
+Compilador / herramienta
+  ↓
+JavaScript
+  ↓
+Navegador o runtime JS</code></pre>
+
+<h3>Kotlin</h3>
+<p>Kotlin puede compilar a bytecode JVM, aunque también existen otros destinos según la plataforma.</p>
+<pre><code>Kotlin
+  ↓
+Compilador Kotlin
+  ↓
+Bytecode JVM
+  ↓
+JVM / Android</code></pre>
+</div>
+</section>
+
+<section id="java">
+<h2>4. Java en detalle</h2>
+<div class="card lang">
+<h3>Variables y tipos</h3>
+<pre><code>String nombre = "Ana";
+int edad = 20;
+double altura = 1.75;
+boolean activo = true;</code></pre>
+
+<h3>Características importantes</h3>
+<ul>
+<li>Tipado estático.</li>
+<li>Clases y objetos son fundamentales.</li>
+<li>Amplio ecosistema empresarial.</li>
+<li>JVM como plataforma principal.</li>
+<li>Gestión automática de memoria.</li>
+<li>Gran cantidad de frameworks y librerías.</li>
+</ul>
+
+<h3>Herramientas típicas</h3>
+<p>JDK, Maven, Gradle, IntelliJ IDEA, Eclipse, Spring y otros frameworks del ecosistema Java.</p>
+</div>
+</section>
+
+<section id="python">
+<h2>5. Python en detalle</h2>
+<div class="card lang">
+<h3>Variables</h3>
+<pre><code>nombre = "Ana"
+edad = 20
+altura = 1.75
+activo = True</code></pre>
+
+<h3>Características importantes</h3>
+<ul>
+<li>Tipado dinámico.</li>
+<li>La indentación forma parte de la estructura del código.</li>
+<li>Sintaxis normalmente corta y legible.</li>
+<li>Amplísimo ecosistema para datos, IA y automatización.</li>
+<li>Muy útil para scripts y prototipos.</li>
+</ul>
+
+<h3>Herramientas</h3>
+<p>Python, pip, venv, PyCharm, VS Code y múltiples frameworks y librerías.</p>
+</div>
+</section>
+
+<section id="typescript">
+<h2>6. TypeScript en detalle</h2>
+<div class="card lang">
+<h3>Variables</h3>
+<pre><code>let nombre: string = "Ana";
+let edad: number = 20;
+let activo: boolean = true;</code></pre>
+
+<h3>Inferencia de tipos</h3>
+<pre><code>let edad = 20;
+// TypeScript infiere que edad es number</code></pre>
+
+<h3>Uniones</h3>
+<pre><code>let hp: number | string = 95;
+
+hp = "FULL"; // también permitido</code></pre>
+
+<h3>Características</h3>
+<ul>
+<li>Se apoya en JavaScript.</li>
+<li>Añade tipos estáticos y herramientas de análisis.</li>
+<li>Excelente para proyectos web grandes.</li>
+<li>Angular utiliza TypeScript como lenguaje principal.</li>
+<li>Funciona con el ecosistema npm.</li>
+</ul>
+</div>
+</section>
+
+<section id="kotlin">
+<h2>7. Kotlin en detalle</h2>
+<div class="card lang">
+<h3>Variables</h3>
+<pre><code>val nombre: String = "Ana"
+var edad: Int = 20
+val activo: Boolean = true</code></pre>
+
+<h3>val y var</h3>
+<ul>
+<li><code>val</code>: referencia que no se reasigna después de inicializarse.</li>
+<li><code>var</code>: variable que puede reasignarse.</li>
+</ul>
+
+<h3>Características</h3>
+<ul>
+<li>Tipado estático con inferencia.</li>
+<li>Sintaxis concisa.</li>
+<li>Null safety.</li>
+<li>Interoperabilidad con Java.</li>
+<li>Muy importante en Android.</li>
+</ul>
+</div>
+</section>
+
+<section id="tipos">
+<h2>8. Tipos de datos</h2>
+<div class="card">
+<table>
+<tr><th>Concepto</th><th>Java</th><th>Python</th><th>TypeScript</th><th>Kotlin</th></tr>
+<tr><td>Entero</td><td><code>int</code></td><td><code>int</code></td><td><code>number</code></td><td><code>Int</code></td></tr>
+<tr><td>Decimal</td><td><code>double</code></td><td><code>float</code></td><td><code>number</code></td><td><code>Double</code></td></tr>
+<tr><td>Texto</td><td><code>String</code></td><td><code>str</code></td><td><code>string</code></td><td><code>String</code></td></tr>
+<tr><td>Booleano</td><td><code>boolean</code></td><td><code>bool</code></td><td><code>boolean</code></td><td><code>Boolean</code></td></tr>
+<tr><td>Nulo</td><td><code>null</code></td><td><code>None</code></td><td><code>null</code> / <code>undefined</code></td><td><code>null</code></td></tr>
+</table>
+<div class="tip"><b>Memoriza:</b> TypeScript utiliza <code>number</code> tanto para enteros como para decimales en la mayoría de los casos de programación cotidiana.</div>
+</div>
+</section>
+
+<section id="variables">
+<h2>9. Variables y constantes</h2>
+<div class="card">
+<pre><code>// Java
+int edad = 20;
+final int MAX = 100;
+
+// Python
+edad = 20
+MAX = 100  # convención, no constante real del lenguaje
+
+// TypeScript
+let edad: number = 20;
+const MAX: number = 100;
+
+// Kotlin
+var edad: Int = 20;
+val MAX: Int = 100</code></pre>
+<p>Una diferencia importante: en Kotlin <code>val</code> impide reasignar la referencia; en TypeScript <code>const</code> impide reasignar la variable. Java utiliza <code>final</code>.</p>
+</div>
+</section>
+
+<section id="operadores">
+<h2>10. Operadores</h2>
+<div class="card">
+<table>
+<tr><th>Operación</th><th>Java</th><th>Python</th><th>TypeScript</th><th>Kotlin</th></tr>
+<tr><td>Suma</td><td><code>+</code></td><td><code>+</code></td><td><code>+</code></td><td><code>+</code></td></tr>
+<tr><td>Resta</td><td><code>-</code></td><td><code>-</code></td><td><code>-</code></td><td><code>-</code></td></tr>
+<tr><td>Multiplicación</td><td><code>*</code></td><td><code>*</code></td><td><code>*</code></td><td><code>*</code></td></tr>
+<tr><td>División</td><td><code>/</code></td><td><code>/</code></td><td><code>/</code></td><td><code>/</code></td></tr>
+<tr><td>Módulo</td><td><code>%</code></td><td><code>%</code></td><td><code>%</code></td><td><code>%</code></td></tr>
+<tr><td>Igualdad</td><td><code>==</code></td><td><code>==</code></td><td><code>===</code></td><td><code>==</code></td></tr>
+<tr><td>Diferente</td><td><code>!=</code></td><td><code>!=</code></td><td><code>!==</code></td><td><code>!=</code></td></tr>
+</table>
+</div>
+</section>
+
+<section id="condicionales">
+<h2>11. Condicionales</h2>
+<div class="card">
+<pre><code>// Java
+if (edad >= 18) {
+    System.out.println("Adulto");
+} else {
+    System.out.println("Menor");
+}
+
+// Python
+if edad >= 18:
+    print("Adulto")
+else:
+    print("Menor")
+
+// TypeScript
+if (edad >= 18) {
+    console.log("Adulto");
+} else {
+    console.log("Menor");
+}
+
+// Kotlin
+if (edad >= 18) {
+    println("Adulto")
+} else {
+    println("Menor")
+}</code></pre>
+<div class="note"><b>Observa:</b> Python utiliza indentación. Java, TypeScript y Kotlin utilizan normalmente llaves para delimitar bloques.</div>
+</div>
+</section>
+
+<section id="bucles">
+<h2>12. Bucles</h2>
+<div class="card">
+<h3>For tradicional</h3>
+<pre><code>// Java
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+
+// Python
+for i in range(5):
+    print(i)
+
+// TypeScript
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+// Kotlin
+for (i in 0 until 5) {
+    println(i)
+}</code></pre>
+
+<h3>Recorrer colecciones</h3>
+<pre><code>// Java
+for (String nombre : nombres) {
+    System.out.println(nombre);
+}
+
+// Python
+for nombre in nombres:
+    print(nombre)
+
+// TypeScript
+for (const nombre of nombres) {
+    console.log(nombre);
+}
+
+// Kotlin
+for (nombre in nombres) {
+    println(nombre)
+}</code></pre>
+</div>
+</section>
+
+<section id="funciones">
+<h2>13. Funciones</h2>
+<div class="card">
+<table>
+<tr><th>Lenguaje</th><th>Ejemplo</th></tr>
+<tr><td>Java</td><td><pre><code>static int sumar(int a, int b) {
+    return a + b;
+}</code></pre></td></tr>
+<tr><td>Python</td><td><pre><code>def sumar(a, b):
+    return a + b</code></pre></td></tr>
+<tr><td>TypeScript</td><td><pre><code>function sumar(a: number, b: number): number {
+    return a + b;
+}</code></pre></td></tr>
+<tr><td>Kotlin</td><td><pre><code>fun sumar(a: Int, b: Int): Int {
+    return a + b
+}</code></pre></td></tr>
+</table>
+<h3>Funciones flecha en TypeScript</h3>
+<pre><code>const sumar = (a: number, b: number): number => {
+    return a + b;
+};</code></pre>
+</div>
+</section>
+
+<section id="arrays">
+<h2>14. Arrays y listas</h2>
+<div class="card">
+<pre><code>// Java
+List&lt;String&gt; nombres = List.of("Ana", "Luis");
+
+// Python
+nombres = ["Ana", "Luis"]
+
+// TypeScript
+const nombres: string[] = ["Ana", "Luis"];
+
+// Kotlin
+val nombres = listOf("Ana", "Luis")</code></pre>
+<h3>Acceder a elementos</h3>
+<pre><code>Java:       nombres.get(0)
+Python:     nombres[0]
+TypeScript: nombres[0]
+Kotlin:     nombres[0]</code></pre>
+<p>En los cuatro casos, el primer índice es normalmente <code>0</code>.</p>
+</div>
+</section>
+
+<section id="mapas">
+<h2>15. Mapas y diccionarios</h2>
+<div class="card">
+<pre><code>// Java
+Map&lt;String, Integer&gt; edades = new HashMap&lt;&gt;();
+edades.put("Ana", 20);
+
+// Python
+edades = {
+    "Ana": 20
+}
+
+// TypeScript
+const edades: Map&lt;string, number&gt; = new Map();
+edades.set("Ana", 20);
+
+// Kotlin
+val edades = mutableMapOf(
+    "Ana" to 20
+)</code></pre>
+<p>La idea común es almacenar una relación <b>clave → valor</b>.</p>
+</div>
+</section>
+
+<section id="strings">
+<h2>16. Strings</h2>
+<div class="card">
+<h3>Concatenación</h3>
+<pre><code>// Java
+String nombre = "Ana";
+String mensaje = "Hola " + nombre;
+
+// Python
+nombre = "Ana"
+mensaje = "Hola " + nombre
+
+// TypeScript
+const nombre = "Ana";
+const mensaje = "Hola " + nombre;
+
+// Kotlin
+val nombre = "Ana"
+val mensaje = "Hola " + nombre</code></pre>
+
+<h3>Interpolación / plantillas</h3>
+<pre><code>// Python
+mensaje = f"Hola {nombre}"
+
+// TypeScript
+const mensaje = `Hola ${nombre}`;
+
+// Kotlin
+val mensaje = "Hola $nombre"
+
+// Java moderno
+String mensaje = "Hola %s".formatted(nombre);</code></pre>
+</div>
+</section>
+
+<section id="poo">
+<h2>17. Programación orientada a objetos</h2>
+<div class="card">
+<p>La POO organiza el programa alrededor de clases, objetos, atributos y métodos.</p>
+<h3>Clase sencilla</h3>
+<pre><code>// Java
+class Persona {
+    String nombre;
+
+    Persona(String nombre) {
+        this.nombre = nombre;
+    }
+
+    void saludar() {
+        System.out.println("Hola " + nombre);
+    }
+}
+
+// Python
+class Persona:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    def saludar(self):
+        print("Hola", self.nombre)
+
+// TypeScript
+class Persona {
+    constructor(public nombre: string) {}
+
+    saludar(): void {
+        console.log(`Hola ${this.nombre}`);
+    }
+}
+
+// Kotlin
+class Persona(val nombre: String) {
+    fun saludar() {
+        println("Hola $nombre")
+    }
+}</code></pre>
+</div>
+</section>
+
+<section id="interfaces">
+<h2>18. Interfaces y abstracción</h2>
+<div class="card">
+<h3>Java</h3>
+<pre><code>interface Animal {
+    void hacerSonido();
+}</code></pre>
+<h3>TypeScript</h3>
+<pre><code>interface Animal {
+    nombre: string;
+    hacerSonido(): void;
+}</code></pre>
+<h3>Kotlin</h3>
+<pre><code>interface Animal {
+    val nombre: String
+    fun hacerSonido()
+}</code></pre>
+<h3>Python</h3>
+<p>Python puede conseguir abstracciones mediante clases base abstractas, protocolos y otras técnicas.</p>
+<pre><code>from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def hacer_sonido(self):
+        pass</code></pre>
+</div>
+</section>
+
+<section id="herencia">
+<h2>19. Herencia y polimorfismo</h2>
+<div class="card">
+<pre><code>// Java
+class Animal {
+    void sonido() {
+        System.out.println("Sonido");
+    }
+}
+
+class Perro extends Animal {
+    @Override
+    void sonido() {
+        System.out.println("Guau");
+    }
+}
+
+// TypeScript
+class Animal {
+    sonido(): void {
+        console.log("Sonido");
+    }
+}
+
+class Perro extends Animal {
+    override sonido(): void {
+        console.log("Guau");
+    }
+}
+
+// Kotlin
+open class Animal {
+    open fun sonido() {
+        println("Sonido")
+    }
+}
+
+class Perro : Animal() {
+    override fun sonido() {
+        println("Guau")
+    }
+}</code></pre>
+<p>Python también permite herencia mediante:</p>
+<pre><code>class Perro(Animal):
+    def sonido(self):
+        print("Guau")</code></pre>
+</div>
+</section>
+
+<section id="genericos">
+<h2>20. Genéricos</h2>
+<div class="card">
+<p>Los genéricos permiten escribir código reutilizable manteniendo información de tipos.</p>
+<pre><code>// Java
+List&lt;String&gt; nombres;
+
+// TypeScript
+const nombres: Array&lt;string&gt; = [];
+
+// Kotlin
+val nombres: List&lt;String&gt; = listOf()
+
+// Python
+from typing import List
+nombres: List[str] = []</code></pre>
+<div class="note">En Python las anotaciones de tipos sirven principalmente para análisis estático y herramientas; no convierten automáticamente el lenguaje en un sistema de tipos estático como Java.</div>
+</div>
+</section>
+
+<section id="null">
+<h2>21. Null, None y undefined</h2>
+<div class="card">
+<table>
+<tr><th>Lenguaje</th><th>Concepto</th><th>Ejemplo</th></tr>
+<tr><td>Java</td><td><code>null</code></td><td><code>String nombre = null;</code></td></tr>
+<tr><td>Python</td><td><code>None</code></td><td><code>nombre = None</code></td></tr>
+<tr><td>TypeScript</td><td><code>null</code> y <code>undefined</code></td><td><code>let nombre: string | null = null;</code></td></tr>
+<tr><td>Kotlin</td><td><code>null</code> con tipos anulables</td><td><code>var nombre: String? = null</code></td></tr>
+</table>
+<h3>Kotlin y null safety</h3>
+<pre><code>var nombre: String? = null
+
+println(nombre?.length)</code></pre>
+<p>El operador <code>?.</code> permite acceder de forma segura cuando el valor puede ser nulo.</p>
+</div>
+</section>
+
+<section id="errores">
+<h2>22. Manejo de errores</h2>
+<div class="card">
+<h3>Java</h3>
+<pre><code>try {
+    int resultado = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Error");
+}</code></pre>
+<h3>Python</h3>
+<pre><code>try:
+    resultado = 10 / 0
+except ZeroDivisionError:
+    print("Error")</code></pre>
+<h3>TypeScript</h3>
+<pre><code>try {
+    throw new Error("Algo salió mal");
+} catch (error) {
+    console.error(error);
+}</code></pre>
+<h3>Kotlin</h3>
+<pre><code>try {
+    val resultado = 10 / 0
+} catch (e: ArithmeticException) {
+    println("Error")
+}</code></pre>
+</div>
+</section>
+
+<section id="async">
+<h2>23. Asincronía y concurrencia</h2>
+<div class="card">
+<h3>TypeScript</h3>
+<pre><code>async function cargarUsuarios() {
+    const respuesta = await fetch("/api/usuarios");
+    const usuarios = await respuesta.json();
+    return usuarios;
+}</code></pre>
+<h3>Python</h3>
+<pre><code>async def cargar_usuarios():
+    usuarios = await obtener_usuarios()
+    return usuarios</code></pre>
+<h3>Kotlin</h3>
+<pre><code>suspend fun cargarUsuarios(): List&lt;Usuario&gt; {
+    return obtenerUsuarios()
+}</code></pre>
+<h3>Java</h3>
+<p>Java dispone de hilos, ejecutores, futuros y APIs de concurrencia, entre otros mecanismos.</p>
+<pre><code>ExecutorService executor =
+    Executors.newFixedThreadPool(2);</code></pre>
+<div class="warning"><b>No confundas:</b> asincronía, concurrencia y paralelismo están relacionados pero no significan exactamente lo mismo.</div>
+</div>
+</section>
+
+<section id="modulos">
+<h2>24. Módulos</h2>
+<div class="card">
+<h3>TypeScript</h3>
+<pre><code>// usuario.ts
+export interface Usuario {
+    nombre: string;
+}
+
+// app.ts
+import { Usuario } from "./usuario";</code></pre>
+<h3>Python</h3>
+<pre><code># usuario.py
+class Usuario:
+    pass
+
+# app.py
+from usuario import Usuario</code></pre>
+<h3>Java</h3>
+<p>Java organiza código mediante paquetes, clases e imports.</p>
+<pre><code>package usuarios;
+
+import java.util.List;</code></pre>
+<h3>Kotlin</h3>
+<pre><code>package usuarios
+
+import kotlin.collections.List</code></pre>
+</div>
+</section>
+
+<section id="memoria">
+<h2>25. Memoria y garbage collection</h2>
+<div class="card">
+<p>Los cuatro ecosistemas modernos gestionan gran parte de la memoria automáticamente, aunque los detalles son diferentes.</p>
+<table>
+<tr><th>Lenguaje</th><th>Gestión</th></tr>
+<tr><td>Java</td><td>Garbage Collector de la JVM</td></tr>
+<tr><td>Python</td><td>Conteo de referencias y mecanismos de garbage collection en implementaciones habituales como CPython</td></tr>
+<tr><td>TypeScript</td><td>Depende del runtime JavaScript, como navegador o Node.js</td></tr>
+<tr><td>Kotlin/JVM</td><td>Garbage Collector de la JVM</td></tr>
+</table>
+<p>Esto significa que normalmente no tienes que liberar manualmente cada objeto como se haría en lenguajes con gestión manual de memoria.</p>
+</div>
+</section>
+
+<section id="herramientas">
+<h2>26. Herramientas y ecosistemas</h2>
+<div class="card compare">
+<table>
+<tr><th>Lenguaje</th><th>IDE/editor</th><th>Gestor/build</th><th>Entorno</th></tr>
+<tr><td>Java</td><td>IntelliJ IDEA, Eclipse, VS Code</td><td>Maven, Gradle</td><td>JDK/JVM</td></tr>
+<tr><td>Python</td><td>PyCharm, VS Code</td><td>pip, Poetry y otras herramientas</td><td>Python runtime</td></tr>
+<tr><td>TypeScript</td><td>VS Code, WebStorm</td><td>npm, pnpm, yarn, Vite, Angular CLI</td><td>Browser / Node.js / otros runtimes JS</td></tr>
+<tr><td>Kotlin</td><td>IntelliJ IDEA, Android Studio</td><td>Gradle</td><td>JVM / Android / otros targets</td></tr>
+</table>
+</div>
+</section>
+
+<section id="web">
+<h2>27. Desarrollo web</h2>
+<div class="card">
+<h3>Frontend</h3>
+<p>TypeScript tiene una posición especialmente importante porque puede utilizarse junto con HTML y CSS para construir interfaces web.</p>
+<pre><code>HTML + CSS + TypeScript
+        ↓
+Angular / React / Vue / otros
+        ↓
+Aplicación web</code></pre>
+<h3>Backend</h3>
+<p>Java, Python, TypeScript y Kotlin pueden utilizarse en backend mediante sus respectivos frameworks y runtimes.</p>
+</div>
+</section>
+
+<section id="android">
+<h2>28. Android</h2>
+<div class="card">
+<p>Kotlin es especialmente importante en Android moderno. Java también tiene una larga historia dentro del desarrollo Android.</p>
+<pre><code>Kotlin
+  ↓
+Android Studio
+  ↓
+Aplicación Android</code></pre>
+<p>TypeScript puede utilizarse en aplicaciones móviles mediante determinadas tecnologías multiplataforma, pero no equivale a programar Android nativo directamente con Kotlin.</p>
+</div>
+</section>
+
+<section id="datos">
+<h2>29. Datos e IA</h2>
+<div class="card">
+<p>Python tiene un ecosistema especialmente amplio para ciencia de datos, aprendizaje automático e IA.</p>
+<div class="grid">
+<div class="mini"><h3>Python</h3><p>NumPy, pandas, scikit-learn, PyTorch, TensorFlow y muchas otras herramientas.</p></div>
+<div class="mini"><h3>Java</h3><p>Puede utilizarse en sistemas de datos y aplicaciones empresariales.</p></div>
+<div class="mini"><h3>TypeScript</h3><p>Puede utilizarse para consumir servicios de IA y construir aplicaciones web con IA.</p></div>
+<div class="mini"><h3>Kotlin</h3><p>Puede integrarse en aplicaciones y servicios relacionados con datos o ML según el proyecto.</p></div>
+</div>
+</div>
+</section>
+
+<section id="rendimiento">
+<h2>30. Rendimiento</h2>
+<div class="card">
+<p>No es correcto reducir la comparación a “lenguaje rápido” frente a “lenguaje lento”. El rendimiento depende del runtime, algoritmo, librerías, arquitectura y carga.</p>
+<table>
+<tr><th>Factor</th><th>Qué debes mirar</th></tr>
+<tr><td>Algoritmos</td><td>Complejidad temporal y espacial.</td></tr>
+<tr><td>Runtime</td><td>JVM, Python runtime, JavaScript runtime, etc.</td></tr>
+<tr><td>Memoria</td><td>Asignaciones, objetos y garbage collection.</td></tr>
+<tr><td>I/O</td><td>Red, disco, base de datos.</td></tr>
+<tr><td>Framework</td><td>Puede influir mucho en una aplicación real.</td></tr>
+</table>
+<div class="note"><b>Para estudiar:</b> primero aprende algoritmos y estructuras de datos. Comparar solo la velocidad de la sintaxis de los lenguajes puede llevar a conclusiones incorrectas.</div>
+</div>
+</section>
+
+<section id="ventajas">
+<h2>31. Ventajas y dificultades</h2>
+<div class="card compare">
+<table>
+<tr><th>Lenguaje</th><th>Características que suelen resultar útiles</th><th>Conceptos que conviene dominar</th></tr>
+<tr><td>Java</td><td>Tipado estático, ecosistema grande, JVM, backend empresarial.</td><td>Clases, interfaces, colecciones, excepciones, genéricos, JVM.</td></tr>
+<tr><td>Python</td><td>Sintaxis sencilla, productividad, datos, IA, automatización.</td><td>Tipos dinámicos, módulos, excepciones, iteradores, entornos virtuales.</td></tr>
+<tr><td>TypeScript</td><td>Tipos + JavaScript + desarrollo web moderno.</td><td>JavaScript, DOM, async/await, tipos, interfaces, npm, APIs.</td></tr>
+<tr><td>Kotlin</td><td>Conciso, null safety, interoperabilidad con Java.</td><td>Coroutines, clases, data classes, null safety, JVM/Android.</td></tr>
+</table>
+</div>
+</section>
+
+<section id="equivalencias">
+<h2>32. Ejemplos equivalentes</h2>
+<div class="card">
+<h3>Crear un personaje</h3>
+<pre><code>// Java
+String nombre = "Guerrero";
+int hp = 95;
+boolean vivo = true;
+
+// Python
+nombre = "Guerrero"
+hp = 95
+vivo = True
+
+// TypeScript
+let nombre: string = "Guerrero";
+let hp: number = 95;
+let vivo: boolean = true;
+
+// Kotlin
+val nombre: String = "Guerrero"
+val hp: Int = 95
+val vivo: Boolean = true</code></pre>
+
+<h3>Función para sumar</h3>
+<pre><code>// Java
+static int sumar(int a, int b) {
+    return a + b;
+}
+
+// Python
+def sumar(a, b):
+    return a + b
+
+// TypeScript
+function sumar(a: number, b: number): number {
+    return a + b;
+}
+
+// Kotlin
+fun sumar(a: Int, b: Int): Int {
+    return a + b
+}</code></pre>
+
+<h3>Lista</h3>
+<pre><code>// Java
+List&lt;String&gt; nombres = List.of("Ana", "Luis");
+
+// Python
+nombres = ["Ana", "Luis"]
+
+// TypeScript
+const nombres: string[] = ["Ana", "Luis"];
+
+// Kotlin
+val nombres = listOf("Ana", "Luis")</code></pre>
+</div>
+</section>
+
+<section id="proyecto">
+<h2>33. Mini proyecto comparativo</h2>
+<div class="card">
+<p>Problema: crear un programa que guarde usuarios y permita mostrar su nombre y edad.</p>
+
+<h3>Java</h3>
+<pre><code>class Usuario {
+    String nombre;
+    int edad;
+
+    Usuario(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    void mostrar() {
+        System.out.println(nombre + " - " + edad);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Usuario usuario = new Usuario("Ana", 20);
+        usuario.mostrar();
+    }
+}</code></pre>
+
+<h3>Python</h3>
+<pre><code>class Usuario:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def mostrar(self):
+        print(self.nombre, "-", self.edad)
+
+usuario = Usuario("Ana", 20)
+usuario.mostrar()</code></pre>
+
+<h3>TypeScript</h3>
+<pre><code>class Usuario {
+    constructor(
+        public nombre: string,
+        public edad: number
+    ) {}
+
+    mostrar(): void {
+        console.log(`${this.nombre} - ${this.edad}`);
+    }
+}
+
+const usuario = new Usuario("Ana", 20);
+usuario.mostrar();</code></pre>
+
+<h3>Kotlin</h3>
+<pre><code>class Usuario(
+    val nombre: String,
+    val edad: Int
+) {
+    fun mostrar() {
+        println("$nombre - $edad")
+    }
+}
+
+fun main() {
+    val usuario = Usuario("Ana", 20)
+    usuario.mostrar()
+}</code></pre>
+</div>
+</section>
+
+<section id="estudio">
+<h2>34. Qué estudiar primero</h2>
+<div class="card">
+<h3>Orden recomendado si estás empezando</h3>
+<ol>
+<li><b>Variables y tipos.</b></li>
+<li><b>Operadores.</b></li>
+<li><b>if / else.</b></li>
+<li><b>for / while.</b></li>
+<li><b>Funciones.</b></li>
+<li><b>Arrays, listas y mapas.</b></li>
+<li><b>Clases y objetos.</b></li>
+<li><b>Herencia e interfaces.</b></li>
+<li><b>Errores y excepciones.</b></li>
+<li><b>Módulos y paquetes.</b></li>
+<li><b>Asincronía.</b></li>
+<li><b>APIs y JSON.</b></li>
+<li><b>Git.</b></li>
+</ol>
+
+<div class="success"><b>Para tu ruta con Angular:</b> da prioridad a JavaScript → TypeScript → HTML/CSS → npm → APIs HTTP → Angular → Git. Después utiliza esta comparación para trasladar los conceptos a Java, Python y Kotlin.</div>
+</div>
+</section>
+
+<section id="resumen">
+<h2>35. Resumen final</h2>
+<div class="card">
+<table>
+<tr><th>Si piensas en...</th><th>Lenguaje/ecosistema que aparece con frecuencia</th></tr>
+<tr><td>Backend empresarial y JVM</td><td>Java</td></tr>
+<tr><td>IA, datos, automatización y scripting</td><td>Python</td></tr>
+<tr><td>Frontend web y ecosistema JavaScript</td><td>TypeScript</td></tr>
+<tr><td>Android y JVM moderno</td><td>Kotlin</td></tr>
+</table>
+
+<h3>La idea más importante</h3>
+<p>Los cuatro lenguajes comparten fundamentos: <b>variables → condiciones → bucles → funciones → estructuras de datos → objetos → errores → módulos → aplicaciones</b>.</p>
+<p>Cuando aprendes un lenguaje, no solo estás memorizando palabras. Estás aprendiendo a resolver problemas. Después, aprender otro lenguaje consiste en aprender cómo expresa esos mismos conceptos y qué herramientas aporta su ecosistema.</p>
+
+<div class="warning"><b>Nota:</b> esta comparación es descriptiva y no pretende establecer un ganador general. Un lenguaje puede ser adecuado para una tarea y menos adecuado para otra.</div>
+</div>
+</section>
+
+</main>
+
+<a class="top" href="#inicio">↑ Inicio</a>
+<footer><div><b>Guía detallada — Java · Python · TypeScript · Kotlin</b><br>Documento HTML autocontenido para estudiar y consultar.</div></footer>
+</body>
+</html>

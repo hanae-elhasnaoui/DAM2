@@ -16,7 +16,13 @@ public class GestionPartidos {
 
 	private static ArrayList<Partido> partidos = new ArrayList<>();
 	
-	
+	static {
+	    partidos.add(new Partido("Athletic", "Barcelona", "2", "1", "SanMames", "20/09/26"));
+	    partidos.add(new Partido("RealMadrid", "Sevilla", "3", "0", "Bernabeu", "21/09/26"));
+	    partidos.add(new Partido("Valencia", "Betis", "1", "1", "Mestalla", "22/09/26"));
+	    partidos.add(new Partido("Osasuna", "Girona", "0", "2", "ElSadar", "23/09/26"));
+	    partidos.add(new Partido("Getafe", "Celta", "2", "2", "Coliseum", "24/09/26"));
+	}
 	public static ArrayList<Partido> cargarPartidos() {
 
 		ObjectInputStream dataIS = null;
@@ -88,6 +94,16 @@ public class GestionPartidos {
 	    
 	    return corr;
 	    
+	}
+
+
+	public static ArrayList<Partido> getPartidos() {
+		return partidos;
+	}
+
+
+	public static void setPartidos(ArrayList<Partido> partidos) {
+		GestionPartidos.partidos = partidos;
 	}
 
 	
