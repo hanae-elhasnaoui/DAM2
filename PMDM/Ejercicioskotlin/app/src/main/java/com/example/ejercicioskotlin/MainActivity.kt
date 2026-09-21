@@ -26,23 +26,36 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         usernameInput = findViewById(R.id.usr_name)
-        psdInput=findViewById(R.id.usr_psd)
-        loginBtn=findViewById(R.id.btn_login)
+        psdInput = findViewById(R.id.usr_psd)
+        loginBtn = findViewById(R.id.btn_login)
+        val intentos = 3
+        var contador = 0
+        loginBtn.setOnClickListener {
 
-        loginBtn.setOnClickListener{
-            val usrname=usernameInput.text.toString()
-            val psd=psdInput.text.toString()
+            val usrname = usernameInput.text.toString()
+            val psd = psdInput.text.toString()
 
-            Log.i("Test credentials","Username :$usrname and Passwoed : $psd" )
-            if (usrname=="admin" && psd=="1234"){
-                Toast.makeText(this, "Inicio correcto", Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+            Log.i("Test credentials", "Username :$usrname and Passwoed : $psd")
+
+
+             if (usrname == "admin" && psd == "1234") {
+                 Toast.makeText(this, "Inicio correcto", Toast.LENGTH_SHORT).show()
+                 contador=0
+             } else {
+                 contador++
+                 if (contador < intentos) {
+                     Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                 }else  {
+                     loginBtn.isEnabled=false
+                     Toast.makeText(this, "Te has bloqueado intenta otra vez", Toast.LENGTH_SHORT).show()
+
+                 }
+             }
             }
-        }
+
+
+
     }
-
-
 
 }
 
