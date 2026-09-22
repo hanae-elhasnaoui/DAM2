@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guía completa de Python — Hajar</title>
+<style>
+:root{--azul:#172554;--vio:#6d28d9;--rosa:#db2777;--fondo:#f7f7ff;--texto:#20212b}*{box-sizing:border-box}body{margin:0;font:16px/1.65 system-ui,sans-serif;color:var(--texto);background:var(--fondo)}header{padding:55px 8%;color:#fff;background:linear-gradient(125deg,var(--azul),var(--vio),var(--rosa))}h1{font-size:clamp(2rem,5vw,3.8rem);margin:0 0 8px}header p{max-width:800px;font-size:1.1rem}nav{background:white;padding:14px 8%;position:sticky;top:0;box-shadow:0 2px 10px #0002}nav a{color:var(--vio);text-decoration:none;font-weight:700;margin-right:13px}main{max-width:1050px;margin:auto;padding:25px 20px 70px}section{background:white;border-radius:15px;padding:26px;margin:20px 0;box-shadow:0 5px 20px #15104a12}h2{color:var(--azul);margin-top:0;border-bottom:3px solid #ddd6fe;padding-bottom:8px}h3{color:var(--vio);margin-top:25px}code{font-family:Consolas,monospace;background:#ede9fe;padding:1px 4px;border-radius:4px;color:#3b0764}pre{background:#101827;color:#e6edf3;padding:17px;border-radius:10px;overflow:auto;line-height:1.5}pre code{background:none;color:inherit}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.card{border:1px solid #ddd6fe;border-radius:10px;padding:13px}.notice{padding:13px 16px;background:#fff7ed;border-left:5px solid #f97316;border-radius:6px}.ok{padding:13px 16px;background:#ecfdf5;border-left:5px solid #10b981;border-radius:6px}.toc{columns:2}.toc a{display:block;color:#5b21b6;text-decoration:none;margin:5px}@media(max-width:600px){.toc{columns:1}section{padding:18px}}
+</style></head><body>
+<header><h1>Python: guía completa</h1><p>Referencia para OP1, ejercicios, exámenes y proyectos. Castellano sencillo: desde cero hasta ficheros, clases, bases de datos y APIs.</p></header>
+<nav><a href="#bases">Bases</a><a href="#condiciones">Decisiones</a><a href="#colecciones">Colecciones</a><a href="#funciones">Funciones</a><a href="#archivos">Archivos</a><a href="#poo">POO</a><a href="#proyectos">Proyectos</a></nav><main>
+<section><h2>0. Método para resolver cualquier ejercicio</h2><div class="grid"><div class="card"><b>1. Entender</b><br>¿Qué datos entran y qué debe mostrar?</div><div class="card"><b>2. Pensar</b><br>Escribe los pasos en castellano.</div><div class="card"><b>3. Elegir</b><br>Variable, lista, diccionario, función o clase.</div><div class="card"><b>4. Probar</b><br>Caso normal, vacío y dato incorrecto.</div></div><h3>Índice</h3><div class="toc"><a href="#instalar">1. Instalar y ejecutar</a><a href="#bases">2. Variables y tipos</a><a href="#operadores">3. Operadores</a><a href="#condiciones">4. if / elif / else</a><a href="#bucles">5. Bucles</a><a href="#cadenas">6. Texto</a><a href="#colecciones">7. Colecciones</a><a href="#funciones">8. Funciones</a><a href="#errores">9. Errores</a><a href="#archivos">10. Ficheros y JSON</a><a href="#modulos">11. Módulos y venv</a><a href="#poo">12. Clases</a><a href="#sqlite">13. SQLite</a><a href="#apis">14. APIs</a><a href="#tests">15. Tests</a><a href="#proyectos">16. Proyecto</a></div></section>
+<section id="instalar"><h2>1. Instalar y ejecutar</h2><p>Instala Python desde <a href="https://www.python.org/downloads/">python.org</a>. En Windows marca <b>Add Python to PATH</b>. En VS Code instala la extensión Python de Microsoft.</p><pre><code>python --version
+python hola.py
+# En algunos Windows: py hola.py</code></pre><p>Los archivos terminan en <code>.py</code>. Un comentario empieza con <code>#</code>. Python usa la indentación (normalmente cuatro espacios) para crear bloques.</p><pre><code>if 5 &gt; 2:
+    print("Dentro del if")
+print("Siempre se ejecuta")</code></pre></section>
+<section id="bases"><h2>2. Variables, tipos e input</h2><pre><code>nombre = "Hajar"   # str: texto
+edad = 21          # int: entero
+nota = 8.5         # float: decimal
+activo = True      # bool: True / False
+vacio = None       # no hay valor
+print(type(nota))</code></pre><div class="notice"><b>Muy importante:</b> input() siempre devuelve texto. Convierte el valor si necesitas un número.</div><pre><code>nombre = input("Nombre: ")
+edad = int(input("Edad: "))
+precio = float(input("Precio: "))
+print(f"Hola {nombre}; tienes {edad} años")</code></pre><p>Conversión: <code>str(5)</code>, <code>int("5")</code>, <code>float("2.5")</code>. En Python el decimal usa punto: <code>2.5</code>.</p></section>
+<section id="operadores"><h2>3. Operadores</h2><ul><li>Matemáticos: <code>+ - * / // % **</code>. <code>7//2</code> es 3; <code>7%2</code> es 1; <code>2**3</code> es 8.</li><li>Comparación: <code>== != &gt; &lt; &gt;= &lt;=</code>.</li><li>Lógicos: <code>and</code>, <code>or</code>, <code>not</code>.</li><li>Asignación: <code>= += -= *=</code>. Ejemplo: <code>contador += 1</code>.</li><li>Pertenencia: <code>in</code> y <code>not in</code>.</li></ul><p><b>Ojo:</b> <code>=</code> asigna; <code>==</code> compara.</p></section>
+<section id="condiciones"><h2>4. Condiciones: if, elif y else</h2><pre><code>nota = float(input("Nota: "))
+
+if nota >= 9:
+    mensaje = "Sobresaliente"
+elif nota >= 7:
+    mensaje = "Notable"
+elif nota >= 5:
+    mensaje = "Aprobado"
+else:
+    mensaje = "Suspendido"
+
+print(mensaje)</code></pre><p>Para comparar texto ignorando mayúsculas: <code>nombre.lower() == "hajar"</code>.</p></section>
+<section id="bucles"><h2>5. Bucles</h2><h3>for: recorrer o repetir una cantidad</h3><pre><code>for numero in range(1, 6):  # 1 hasta 5
+    print(numero)
+
+nombres = ["Hajar", "Sara", "Ana"]
+for indice, nombre in enumerate(nombres):
+    print(indice, nombre)</code></pre><h3>while: repetir mientras se cumpla una condición</h3><pre><code>intentos = 0
+while intentos < 3:
+    clave = input("Clave: ")
+    if clave == "1234":
+        print("Acceso correcto")
+        break
+    intentos += 1
+else:
+    print("No quedan intentos")</code></pre><p><code>break</code> sale del bucle. <code>continue</code> salta a la vuelta siguiente.</p></section>
+<section id="cadenas"><h2>6. Strings: trabajar con texto</h2><pre><code>texto = "  Python es fácil  "
+print(texto.lower())
+print(texto.upper())
+print(texto.strip())
+print(texto.replace("fácil", "útil"))
+print(texto.split())
+print("-".join(["2026", "09", "22"]))
+print(texto[2:8])
+print(len(texto))
+
+nombre = "Hajar"
+nota = 8.75
+print(f"{nombre} tiene un {nota:.2f}")</code></pre></section>
+<section id="colecciones"><h2>7. Listas, tuplas, sets y diccionarios</h2><h3>Lista []: ordenada y modificable</h3><pre><code>notas = [7, 8, 6]
+notas.append(9)
+notas.insert(0, 10)
+notas.remove(6)
+ultima = notas.pop()
+notas.sort()
+print(notas[0], len(notas))</code></pre><h3>Tupla (): no modificable</h3><pre><code>coordenada = (43.26, -2.93)
+latitud, longitud = coordenada</code></pre><h3>Set {}: sin valores repetidos</h3><pre><code>colores = {"rojo", "azul", "rojo"}
+colores.add("verde")</code></pre><h3>Diccionario {clave: valor}: ficha de datos</h3><pre><code>alumna = {"nombre": "Hajar", "curso": "DAM2", "nota": 8}
+print(alumna["nombre"])
+print(alumna.get("telefono", "No existe"))
+alumna["nota"] = 9
+for clave, valor in alumna.items():
+    print(clave, valor)</code></pre><div class="ok">Regla: muchos valores iguales → lista. Datos de una persona/producto → diccionario. No cambiar → tupla. Sin repetidos → set.</div><pre><code>numeros = [1, 2, 3, 4, 5]
+cuadrados = [n ** 2 for n in numeros]
+pares = [n for n in numeros if n % 2 == 0]</code></pre></section>
+<section id="funciones"><h2>8. Funciones</h2><p>Una función reúne una tarea. Recibe parámetros y puede devolver un resultado con return.</p><pre><code>def sumar(numero1, numero2):
+    resultado = numero1 + numero2
+    return resultado
+
+def saludar(nombre="persona"):
+    print(f"Hola, {nombre}")
+
+resultado = sumar(4, 6)
+saludar("Hajar")</code></pre><p>Imprimir no es devolver: una función con <code>return</code> deja guardar y reutilizar el resultado. Las variables creadas dentro de una función son locales.</p></section>
+<section id="errores"><h2>9. Errores y excepciones</h2><p>Lee siempre la última línea del error. <b>SyntaxError</b>: código mal escrito. <b>TypeError</b>: tipos incompatibles. <b>ValueError</b>: valor incorrecto.</p><pre><code>try:
+    edad = int(input("Edad: "))
+    resultado = 10 / edad
+except ValueError:
+    print("Escribe un número entero")
+except ZeroDivisionError:
+    print("No puede ser cero")
+else:
+    print(resultado)
+finally:
+    print("Fin")</code></pre><p>No uses <code>except:</code> vacío: escondería errores importantes.</p></section>
+<section id="archivos"><h2>10. Ficheros, JSON y CSV</h2><pre><code># w escribe y borra anterior; a añade
+with open("notas.txt", "w", encoding="utf-8") as archivo:
+    archivo.write("Hajar;8\n")
+
+with open("notas.txt", "r", encoding="utf-8") as archivo:
+    for linea in archivo:
+        print(linea.strip())</code></pre><p><code>with</code> cierra el fichero automáticamente. Modos: <code>r</code> leer, <code>w</code> escribir, <code>a</code> añadir, <code>x</code> crear si no existe.</p><pre><code>import json
+persona = {"nombre": "Hajar", "edad": 21}
+with open("persona.json", "w", encoding="utf-8") as f:
+    json.dump(persona, f, ensure_ascii=False, indent=4)
+with open("persona.json", encoding="utf-8") as f:
+    datos = json.load(f)</code></pre><pre><code>import csv
+with open("alumnas.csv", "w", newline="", encoding="utf-8") as f:
+    escritor = csv.writer(f)
+    escritor.writerow(["nombre", "nota"])
+    escritor.writerow(["Hajar", 8])</code></pre></section>
+<section id="modulos"><h2>11. Módulos, paquetes y entorno virtual</h2><pre><code>import math
+from datetime import date
+import random
+
+print(math.sqrt(25))
+print(date.today())
+print(random.randint(1, 10))</code></pre><p>Para usar tus funciones en otro archivo: crea <code>utilidades.py</code> y escribe <code>from utilidades import sumar</code>.</p><pre><code>python -m venv .venv
+# PowerShell Windows:
+.venv\Scripts\Activate.ps1
+python -m pip install requests
+python -m pip freeze > requirements.txt</code></pre><p>Un entorno virtual separa las librerías de cada proyecto.</p></section>
+<section id="poo"><h2>12. Programación orientada a objetos</h2><p>Clase = molde. Objeto = elemento creado desde el molde. Atributos = datos. Métodos = acciones.</p><pre><code>class Alumna:
+    def __init__(self, nombre, curso, nota=0):
+        self.nombre = nombre
+        self.curso = curso
+        self.nota = nota
+
+    def aprobar(self):
+        return self.nota >= 5
+
+    def __str__(self):
+        return f"{self.nombre} — {self.curso}: {self.nota}"
+
+hajar = Alumna("Hajar", "DAM2", 8)
+print(hajar.nombre)
+print(hajar.aprobar())
+print(hajar)</code></pre><p><code>self</code> significa “este objeto”. <code>__init__</code> se ejecuta al crearlo. <code>__str__</code> define cómo se muestra.</p><pre><code>class Persona:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+class Profesora(Persona):
+    def saludar(self):
+        return f"Hola, soy {self.nombre}"</code></pre></section>
+<section id="sqlite"><h2>13. Base de datos SQLite</h2><pre><code>import sqlite3
+
+conexion = sqlite3.connect("instituto.db")
+cursor = conexion.cursor()
+cursor.execute("""CREATE TABLE IF NOT EXISTS alumna (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    nota REAL NOT NULL
+)""")
+cursor.execute("INSERT INTO alumna (nombre, nota) VALUES (?, ?)", ("Hajar", 8.5))
+conexion.commit()
+
+cursor.execute("SELECT * FROM alumna WHERE nota >= ?", (5,))
+for fila in cursor.fetchall():
+    print(fila)
+conexion.close()</code></pre><div class="notice">Usa siempre <code>?</code> en SQL con datos del usuario. No juntes texto del usuario directamente con la consulta.</div></section>
+<section id="apis"><h2>14. APIs y requests</h2><p>Una API permite pedir datos a otro servicio. GET lee, POST crea, PUT/PATCH actualiza y DELETE elimina.</p><pre><code>import requests
+
+try:
+    respuesta = requests.get("https://api.example.com/products", timeout=10)
+    respuesta.raise_for_status()
+    productos = respuesta.json()
+    print(productos)
+except requests.RequestException as error:
+    print("No se pudo conectar:", error)</code></pre><div class="notice">Nunca subas contraseñas, tokens o claves API a GitHub. Guárdalos como variables de entorno o en .env (incluido en .gitignore).</div></section>
+<section id="tests"><h2>15. Tests y buenas prácticas</h2><pre><code># calculadora.py
+def dividir(a, b):
+    if b == 0:
+        raise ValueError("No se puede dividir entre cero")
+    return a / b
+
+# test_calculadora.py
+import unittest
+from calculadora import dividir
+
+class TestCalculadora(unittest.TestCase):
+    def test_dividir(self):
+        self.assertEqual(dividir(10, 2), 5)
+
+if __name__ == "__main__":
+    unittest.main()</code></pre><pre><code>python -m unittest</code></pre><p>Usa nombres claros, funciones pequeñas, constantes en MAYÚSCULAS, evita repetir código, prueba errores y sigue PEP 8.</p></section>
+<section id="proyectos"><h2>16. Proyecto, Git y práctica</h2><pre><code>mi_proyecto/
+├── main.py
+├── modelos.py
+├── servicios.py
+├── datos.json
+├── requirements.txt
+├── tests/
+│   └── test_main.py
+└── README.md</code></pre><pre><code>git init
+git add .
+git commit -m "Primer avance"
+
+# .gitignore
+.venv/
+__pycache__/
+.env</code></pre><h3>Ejercicios progresivos</h3><ol><li>Pide nombre y edad; muestra si es mayor de edad.</li><li>Pide 5 notas; muestra media, máxima y mínima.</li><li>Haz menú: añadir producto, listar productos y salir.</li><li>Guarda productos en JSON y cárgalos al iniciar.</li><li>Crea clase Producto con nombre, precio y descuento.</li><li>Haz CRUD de alumnas con SQLite.</li></ol><h3>Checklist antes de entregar</h3><div class="grid"><div class="card">El programa arranca.</div><div class="card">Los datos se validan.</div><div class="card">Los nombres son claros.</div><div class="card">Probé casos límite.</div><div class="card">No hay código repetido.</div><div class="card">Hay README.</div></div><p class="ok"><b>Clave final:</b> no necesitas memorizar todo. Aprende a dividir el problema, elegir la estructura correcta y leer los errores. Así podrás hacer ejercicios de OP1 y proyectos reales.</p></section>
+</main></body></html>

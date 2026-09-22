@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guía completa de TypeScript</title>
+<style>
+:root{--ink:#172033;--blue:#2563eb;--sky:#eff6ff;--line:#dbe4f0;--code:#101827;--green:#047857}*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:#f7f9fc}header{padding:56px max(24px,calc((100% - 1050px)/2));background:linear-gradient(120deg,#172554,#2563eb);color:#fff}header h1{font-size:clamp(2rem,5vw,3.6rem);margin:0}header p{font-size:1.12rem;max-width:720px}main{max-width:1050px;margin:auto;padding:26px 24px 70px}nav,section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin:18px 0}nav a{display:inline-block;color:var(--blue);font-weight:650;text-decoration:none;margin:4px 14px 4px 0}h2{color:#173c88;margin-top:0}h3{margin:28px 0 8px;color:#1e40af}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}p code,li code{background:#eef2ff;padding:2px 5px;border-radius:5px;color:#4338ca}pre{background:var(--code);color:#e5edf9;padding:17px;border-radius:10px;overflow:auto;line-height:1.5}pre code{color:inherit}.note,.tip,.warning{padding:14px 16px;border-radius:10px;margin:14px 0}.note{background:var(--sky);border-left:4px solid var(--blue)}.tip{background:#ecfdf5;border-left:4px solid var(--green)}.warning{background:#fff7ed;border-left:4px solid #f97316}table{border-collapse:collapse;width:100%;margin:12px 0}th,td{padding:10px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:#eff6ff}details{border:1px solid var(--line);border-radius:9px;padding:11px 14px;margin:10px 0}summary{cursor:pointer;font-weight:700}footer{text-align:center;color:#64748b;padding:20px}.tag{font-size:.85em;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:99px;font-weight:bold}
+</style></head>
+<body>
+<header><h1>TypeScript · Guía completa</h1><p>Referencia práctica desde tu primer archivo hasta clases, interfaces, genéricos y módulos. Pensada para ejercicios de DAM y Angular.</p></header>
+<main>
+<nav><a href="#inicio">Inicio</a><a href="#tipos">Tipos</a><a href="#funciones">Funciones</a><a href="#objetos">Objetos</a><a href="#clases">Clases</a><a href="#avanzado">Avanzado</a><a href="#angular">Angular</a><a href="#practica">Práctica</a></nav>
+<section id="inicio"><h2>1. ¿Qué es TypeScript?</h2><p>TypeScript (TS) es JavaScript con <strong>tipos</strong>. Tú indicas qué dato esperas y el editor detecta muchos errores antes de ejecutar el programa. El navegador no ejecuta TS directamente: primero se convierte a JavaScript.</p><table><tr><th>JavaScript</th><th>TypeScript</th></tr><tr><td>Flexible, pero puede fallar por un tipo incorrecto.</td><td>Comprueba tipos mientras escribes.</td></tr><tr><td><code>let edad = "20";</code></td><td><code>let edad: number = 20;</code></td></tr></table><h3>Crear y ejecutar un archivo</h3><pre><code># Instalar TypeScript una vez
+npm install -g typescript
+tsc --version
+# Convertir y ejecutar
+tsc ejemplo.ts
+node ejemplo.js</code></pre><div class="note"><strong>En Angular</strong> normalmente no necesitas ejecutar <code>tsc</code>: <code>ng serve</code> compila todo.</div></section>
+<section id="tipos"><h2>2. Variables y tipos básicos</h2><pre><code>const nombre: string = "Hajar";
+let edad: number = 22;
+let estudia: boolean = true;
+let nota: number = 8.5;
+
+// TypeScript también puede deducir el tipo:
+const ciudad = "Bilbao"; // string
+// ciudad = 4;            // error</code></pre><table><tr><th>Tipo</th><th>Ejemplo</th><th>Para qué</th></tr><tr><td><code>string</code></td><td>"Hola"</td><td>Texto</td></tr><tr><td><code>number</code></td><td>10, 3.5</td><td>Números</td></tr><tr><td><code>boolean</code></td><td>true</td><td>Verdadero/falso</td></tr><tr><td><code>undefined</code></td><td>sin valor aún</td><td>Variable no inicializada</td></tr><tr><td><code>null</code></td><td>null</td><td>Sin objeto a propósito</td></tr><tr><td><code>any</code></td><td>cualquier dato</td><td>Evítalo: quita protección</td></tr><tr><td><code>unknown</code></td><td>dato desconocido</td><td>Más seguro que any</td></tr></table><h3>Arrays, tuplas y enums</h3><pre><code>const numeros: number[] = [1, 2, 3];
+const nombres: Array&lt;string&gt; = ["Ana", "Hajar"];
+const usuario: [string, number] = ["Hajar", 22]; // tupla
+enum EstadoPedido { Pendiente, Enviado, Entregado }
+let estado: EstadoPedido = EstadoPedido.Pendiente;</code></pre><div class="warning"><strong>No confundas:</strong> en variables usa <code>string</code> con minúscula, no <code>String</code>.</div></section>
+<section id="funciones"><h2>3. Funciones</h2><p>Una función recibe datos (parámetros), hace una tarea y puede devolver un resultado. Después de los paréntesis indicamos el tipo de retorno.</p><pre><code>function sumar(a: number, b: number): number {
+  return a + b;
+}
+const resultado: number = sumar(4, 6);
+
+function saludar(nombre: string): void {
+  console.log(`Hola ${nombre}`);
+}
+function crearUsuario(nombre: string, edad?: number): string {
+  return edad ? `${nombre} tiene ${edad}` : nombre;
+}
+function aplicarIva(precio: number, iva: number = 0.21): number {
+  return precio * (1 + iva);
+}
+const multiplicar = (a: number, b: number): number =&gt; a * b;</code></pre><div class="tip"><strong><code>void</code></strong> significa “no devuelve ningún valor”.</div></section>
+<section id="objetos"><h2>4. Objetos, type e interface</h2><pre><code>type Alumna = {
+  nombre: string;
+  edad: number;
+  curso?: string; // opcional
+};
+const alumna: Alumna = { nombre: "Hajar", edad: 22, curso: "DAM" };
+
+interface Producto {
+  id: number;
+  nombre: string;
+  precio: number;
+  disponible: boolean;
+}
+const teclado: Producto = {
+  id: 1, nombre: "Teclado", precio: 30, disponible: true
+};</code></pre><p><span class="tag">Regla rápida</span> Usa <code>interface</code> para objetos, clases y APIs. Usa <code>type</code> para uniones o combinaciones.</p><pre><code>type Id = number | string;
+let id: Id = 25;
+id = "A-25";
+type ProductoConStock = Producto &amp; { stock: number };</code></pre></section>
+<section id="clases"><h2>5. Clases: desde cero</h2><p>Una clase es un molde. Un objeto es una cosa creada con ese molde. <code>Coche</code> es la clase; tu coche concreto es un objeto.</p><pre><code>class Persona {
+  nombre: string;
+  edad: number;
+
+  constructor(nombre: string, edad: number) {
+    this.nombre = nombre;
+    this.edad = edad;
+  }
+
+  presentarse(): string {
+    return `Soy ${this.nombre} y tengo ${this.edad} años`;
+  }
+}
+const hajar = new Persona("Hajar", 22);
+console.log(hajar.presentarse());</code></pre><h3>Modificadores de acceso</h3><table><tr><th>Palabra</th><th>Acceso</th></tr><tr><td><code>public</code></td><td>Desde cualquier lugar. Es el valor por defecto.</td></tr><tr><td><code>private</code></td><td>Solo dentro de la clase.</td></tr><tr><td><code>protected</code></td><td>Dentro de la clase y sus clases hijas.</td></tr><tr><td><code>readonly</code></td><td>Solo se asigna una vez.</td></tr></table><pre><code>class Cuenta {
+  constructor(
+    public titular: string,
+    readonly iban: string,
+    private saldo: number = 0
+  ) {}
+
+  ingresar(cantidad: number): void {
+    if (cantidad &gt; 0) this.saldo += cantidad;
+  }
+  verSaldo(): number { return this.saldo; }
+}
+const cuenta = new Cuenta("Hajar", "ES00", 100);
+cuenta.ingresar(50);
+console.log(cuenta.verSaldo()); // 150
+// cuenta.saldo = 0; // error: private</code></pre><h3>Getters y setters</h3><pre><code>class Pelicula {
+  constructor(public titulo: string, private _valoracion: number) {}
+  get valoracion(): number { return this._valoracion; }
+  set valoracion(nueva: number) {
+    if (nueva &gt;= 0 &amp;&amp; nueva &lt;= 10) this._valoracion = nueva;
+  }
+}</code></pre><h3>Herencia y abstract</h3><pre><code>abstract class Animal {
+  constructor(protected nombre: string) {}
+  abstract hacerSonido(): string;
+}
+class Perro extends Animal {
+  hacerSonido(): string { return `${this.nombre}: guau`; }
+}
+const perro = new Perro("Luna");</code></pre><h3>Implementar una interfaz</h3><pre><code>interface Guardable { guardar(): void; }
+class Nota implements Guardable {
+  constructor(public texto: string) {}
+  guardar(): void { console.log("Nota guardada"); }
+}</code></pre></section>
+<section id="avanzado"><h2>6. TypeScript intermedio y avanzado</h2><h3>Uniones y narrowing</h3><pre><code>function mostrarId(id: string | number): string {
+  if (typeof id === "string") return id.toUpperCase();
+  return id.toFixed(0);
+}</code></pre><h3>Generics: reutilizar sin perder el tipo</h3><pre><code>function primero&lt;T&gt;(lista: T[]): T | undefined {
+  return lista[0];
+}
+const primerNumero = primero&lt;number&gt;([3, 7, 9]);
+const primerNombre = primero&lt;string&gt;(["Hajar", "Ana"]);
+
+interface RespuestaApi&lt;T&gt; { ok: boolean; datos: T; }
+const respuesta: RespuestaApi&lt;Producto[]&gt; = { ok: true, datos: [teclado] };</code></pre><h3>Utility Types</h3><table><tr><th>Tipo</th><th>Qué hace</th></tr><tr><td><code>Partial&lt;T&gt;</code></td><td>Convierte todo en opcional</td></tr><tr><td><code>Pick&lt;T,K&gt;</code></td><td>Escoge propiedades</td></tr><tr><td><code>Omit&lt;T,K&gt;</code></td><td>Quita propiedades</td></tr><tr><td><code>Readonly&lt;T&gt;</code></td><td>No deja modificar</td></tr><tr><td><code>Record&lt;K,T&gt;</code></td><td>Objeto con claves y valores definidos</td></tr></table><pre><code>type NuevoProducto = Omit&lt;Producto, "id"&gt;;
+type CambiosProducto = Partial&lt;Producto&gt;;
+const cambios: CambiosProducto = { precio: 25 };</code></pre><h3>Promesas y async/await</h3><pre><code>async function cargarProducto(id: number): Promise&lt;Producto&gt; {
+  const respuesta = await fetch(`https://api.ejemplo.com/productos/${id}`);
+  if (!respuesta.ok) throw new Error("No se pudo cargar el producto");
+  return await respuesta.json() as Producto;
+}</code></pre><h3>Módulos: separar archivos</h3><pre><code>// producto.ts
+export interface Producto { nombre: string; precio: number; }
+export function conIva(p: Producto): number { return p.precio * 1.21; }
+
+// app.ts
+import { Producto, conIva } from "./producto";</code></pre></section>
+<section id="angular"><h2>7. Lo que más usarás en Angular</h2><pre><code>// producto.ts (modelo)
+export interface Producto {
+  id: number;
+  nombre: string;
+  precio: number;
+}
+
+// lista.component.ts
+export class ListaComponent {
+  productos: Producto[] = [];
+  cargando = false;
+
+  agregar(producto: Producto): void {
+    this.productos.push(producto);
+  }
+}</code></pre><p>En Angular, los tipos hacen que componentes, servicios y respuestas de API tengan una estructura clara. Las interfaces normalmente van en una carpeta <code>models</code>.</p></section>
+<section id="practica"><h2>8. Método para resolver ejercicios</h2><ol><li>Identifica qué datos hay: texto, número, booleano u objeto.</li><li>Crea primero los <code>type</code> o <code>interface</code>.</li><li>Escribe funciones pequeñas con sus parámetros y retorno.</li><li>Si hay estado y acciones relacionadas, crea una clase.</li><li>Prueba con <code>console.log()</code>.</li><li>Corrige los errores rojos de TypeScript antes de seguir.</li></ol><details><summary>Ejercicio 1 · Función</summary><p>Crea <code>calcularDescuento(precio, porcentaje)</code> que devuelva el precio final.</p></details><details><summary>Ejercicio 2 · Interface + array</summary><p>Define <code>Tarea</code> con id, titulo y completada. Crea un array y una función que cuente las completadas.</p></details><details><summary>Ejercicio 3 · Clase</summary><p>Crea <code>Carrito</code> con una lista privada de productos y métodos para agregar y calcular el total.</p></details><details><summary>Ejercicio 4 · Herencia</summary><p>Crea una clase abstracta <code>Empleado</code> con <code>calcularSueldo()</code>. Después crea <code>EmpleadoFijo</code> y <code>EmpleadoPorHoras</code>.</p></details><h3>Errores frecuentes</h3><ul><li>Para comparar usa <code>===</code>, no <code>=</code>.</li><li>Dentro de una clase no olvides <code>this.</code>.</li><li>Si el valor cambia, usa <code>let</code>; si no cambia, <code>const</code>.</li><li>No uses <code>any</code> para ocultar errores.</li><li>El tipo que devuelve una función debe coincidir con su <code>return</code>.</li></ul><div class="tip"><strong>Consejo final:</strong> si aparece un error, léelo: TypeScript normalmente te dice qué dato esperaba y cuál recibió.</div></section>
+</main><footer>Guía de estudio · TypeScript · DAM / Angular</footer></body></html>

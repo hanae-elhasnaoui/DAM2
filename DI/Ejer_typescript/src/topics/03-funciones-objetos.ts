@@ -1,28 +1,9 @@
-interface Direccion {
-    calle: string;
-    pais: string;
-    ciudad: string;
-}
+// 1. Declarar un array de tipo string[] con tres personajes
+const personajes: string[] = ['Goku', 'Vegeta', 'Trunks'];
 
-interface SuperHeroe {
-    nombre: string;
-    edad: number;
-    direccion: Direccion;
-    mostrarDireccion: () => string; 
-}
+// 2. Utilizar desestructuración de arreglos (la posición define la variable)
+const [p1, p2, p3] = personajes;
 
-const superHeroe: SuperHeroe = {
-    nombre: 'Spiderman',
-    edad: 30,
-    direccion: {
-        calle: 'Main St',
-        pais: 'USA',
-        ciudad: 'NY'
-    },
-    mostrarDireccion() {
-        return `${this.nombre}, ${this.direccion.ciudad}, ${this.direccion.pais}`;
-    }
-};
-
-const direccion = superHeroe.mostrarDireccion();
-console.log(direccion);
+console.log('Primer personaje extraído:', p1);
+console.log('Segundo personaje extraído:', p2);
+console.log('Tercer personaje extraído:', p3);
