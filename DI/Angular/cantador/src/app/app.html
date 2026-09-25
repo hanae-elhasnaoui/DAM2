@@ -1,0 +1,22 @@
+
+<main class="main">
+<h1>{{ title() }} </h1> 
+
+<h6>Contador: {{ contador() }}</h6>
+
+
+<!-- Modificación directa en el HTML -->
+ <h6>Modificación directa en el HTML </h6>
+
+<button (click)="contador.update(num => num + 1)">+1</button>
+<button (click)="contador.update(num => num - 1)">-1</button>
+
+<!-- Invocamos los métodos del TypeScript -->
+<br><br>
+ <h6>los metodos del typescript</h6>
+
+<button (click)="sumar()"> +1</button>
+<button (click)="restar()"> -1</button>
+
+</main>
+
