@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity2">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:text="@string/selecciona" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="534dp">
+
+        <RadioButton android:id="@+id/rbBizkaia" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bizkaia" android:textColor="#E91E63" android:textSize="18sp"/>
+        <RadioButton android:id="@+id/rbGipuzkoa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gipuzkoa" android:textColor="#E91E63" android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+        <RadioButton android:id="@+id/rbAraba" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/araba" android:textColor="#E91E63" android:textSize="18sp"/>
+        <RadioButton android:id="@+id/rbNafarroa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nafarroa" android:textColor="#E91E63" android:textSize="18sp"/>
+        <RadioButton android:id="@+id/rbLapurdi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/lapurdi" android:textColor="#E91E63" android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+        <RadioButton android:id="@+id/rbZuberoa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zuberoa" android:textColor="#E91E63" android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+        <RadioButton android:id="@+id/rbNafarroaBeherea" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/portugalete" android:textColor="#E91E63" android:textSize="18sp"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/seguinte" />
+</LinearLayout>
+

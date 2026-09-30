@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Ejer16</string>
+    <string name="btnIniciar">Button</string>
+    <string name="aqui_saldra_tu_eleccion">Aqui saldra tu eleccion</string>
+
+    <string name="selecciona">Selecciona</string>
+    <string name="seguinte">Seguinte</string>
+    <string name="bizkaia">Bizkaia</string>
+    <string name="araba">Araba</string>
+    <string name="nafarroa">Nafarroa</string>
+    <string name="gipuzkoa">Gipuzkoa</string>
+    <string name="lapurdi">Lapurdi</string>
+    <string name="zuberoa">Zuberoa</string>
+    <string name="portugalete">Portugalete</string>
+</resources>
