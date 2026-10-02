@@ -21,5 +21,6 @@ export class App {
   restar(): void {
     this.contador.update(val => val - 1);
   }
+  SUMAR(){}
 
 }
