@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">EJERCICIO16</string>
+    <string name="btnIniciar">iniciar\n</string>
+    <string name="aqui_saldra_tu_eleccion">aqui saldra tu eleccion</string>
+    <string name="selecciona">selecciona</string>
+    <string name="bizkaia">bizkia</string>
+    <string name="gipuzkoa">gipuzkoa</string>
+    <string name="araba">araba</string>
+    <string name="nafarroa">nafarroa</string>
+    <string name="lapurdi">lapurdi</string>
+    <string name="portugalete">portugalete</string>
+    <string name="seguinte">seguinte</string>
 </resources>

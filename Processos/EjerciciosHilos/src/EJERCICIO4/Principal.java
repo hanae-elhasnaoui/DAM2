@@ -9,7 +9,7 @@ public class Principal {
 		Thread th1 = new Thread();
 
 		th1.setName("Escritora 1");
-		
+	  	
 
 		th1.start();
 		

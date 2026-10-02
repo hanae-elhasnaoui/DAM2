@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title> Ejercicio angular</title>
+  </head>
+  <body>
+      <h3> {{ title() }} </h3>
+      <p> HELLO {{ name() }}</p>
+      <p> 2+ 3 ={{ 2+3 }}</p>
+      <p> Upper case : {{ name().toUpperCase() }}</p>
+      <button (click)="Modifname()">Reset</button>
+<br>
+      <h3> What is your name ?</h3>
+
+      <input #box (input)="save(box.value)">
+      <br>
+      <input #box (input)="read(box.value)">
+      <br>
+      <button (click)="box.focus()">FOCUS</button>
+      <br>
+      <input #emailInput type="email" name="email" id="idemail"> <br><br>
+      <input #passInput type="password" name="password" id="idpass">
+      <button (click)="login(emailInput.value ,passInput.value)">Connect</button>
+  </body>
+</html>
