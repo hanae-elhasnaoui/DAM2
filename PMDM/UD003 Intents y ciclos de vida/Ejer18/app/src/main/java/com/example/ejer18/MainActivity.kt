@@ -2,6 +2,7 @@ package com.example.ejer18
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -35,14 +36,22 @@ class MainActivity : AppCompatActivity() {
 
             val urlString=etuRL.text.toString().trim()
             if (!urlString.isEmpty()){
-            try {
-                val intentWeb = Intent(Intent.ACTION_VIEW , urlString.toUri())
-                val choser = Intent.createChooser(intentWeb,getText(R.string.titulo_chooser))
 
-                startActivity(choser)
-            }catch (e: Exception) {
-                Toast.makeText(this, "No hay aplicaciones disponibles para abrir este enlace", Toast.LENGTH_LONG).show()
-            }
+                val urlVerificada = if (!urlString.startsWith("http://") && !urlString.startsWith("https://")) {
+                    "https://$urlString"
+                } else {
+                    urlString
+                }
+
+                try {
+                    val intentWeb = Intent(Intent.ACTION_VIEW , Uri.parse(urlVerificada))
+
+                    val choser = Intent.createChooser(intentWeb,getText(R.string.titulo_chooser))
+
+                    startActivity(choser)
+                }catch (_: Exception) {
+                    Toast.makeText(this, "No hay aplicaciones disponibles para abrir este enlace", Toast.LENGTH_LONG).show()
+                }
             }else{
                 Toast.makeText(this, "introduce un site web por", Toast.LENGTH_SHORT).show()
             }
@@ -87,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
                     val chooser = Intent.createChooser(intentEmail, "Enviar correo con:")
                     startActivity(chooser)
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                     Toast.makeText(this, "No hay apps de correo válidas", Toast.LENGTH_SHORT).show()
                 }
             }else{
