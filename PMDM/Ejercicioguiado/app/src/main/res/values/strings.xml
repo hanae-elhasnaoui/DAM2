@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ejercicio guiado</string>
+    <string name="title">Adivina el Número (1 al 100)</string>
+    <string name="input">Introduce tu número aquí</string>
+    <string name="btn_probar">Probar Suerte</string>
+    <string name="tv_intentos">Tienes 3 intentos disponibles.</string>
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Ejer18</string>
+    <string name="youtube">https://youtube.com</string>
+    <string name="btn_web">IR A WEB</string>
+    <string name="tv_latitud">Latitud (ej: 43.26271)</string>
+    <string name="btn_enviar_email">ENVIAR EMAIL</string>
+    <string name="tv_email">correo@ejemplo.com</string>
+    <string name="tv_longitud">Longitud (ej: -2.92528)</string>
+    <string name="btn_map">IR A MAPA</string>
+    <string name="titulo_chooser">Selecciona una aplicación:</string>
+
+</resources>
