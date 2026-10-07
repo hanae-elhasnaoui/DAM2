@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:padding="12dp"
+android:gravity="center_vertical">
+
+<!-- Icono de contacto al lado izquierdo -->
+<ImageView
+    android:id="@+id/imgIconoContacto"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:src="@android:drawable/ic_menu_my_calendar"
+    android:layout_marginEnd="16dp"
+    android:contentDescription="Icono Contacto" />
+
+<!-- Contenedor vertical para los textos -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Nombre del Contacto -->
+    <TextView
+        android:id="@+id/txtNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#212121" />
+
+    <!-- Número de Teléfono -->
+    <TextView
+        android:id="@+id/txtTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#757575"
+        android:layout_marginTop="4dp" />
+</LinearLayout>
+</LinearLayout>
