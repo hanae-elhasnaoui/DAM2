@@ -1,10 +1,14 @@
 package EJERCICIO4;
 
-public class DetonadorConRetardo {
+public class DetonadorConRetardo extends Thread{
+	
+	private int contador;
+	private String nombre;
 
-	public DetonadorConRetardo(String string, int i) {
+	public DetonadorConRetardo(String nombre, int cont) {
+		this.nombre=nombre;
 		
-		
+		}
 	}
 
 }
