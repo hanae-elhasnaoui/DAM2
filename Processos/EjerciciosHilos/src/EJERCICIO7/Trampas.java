@@ -21,14 +21,7 @@ public class Trampas extends JFrame {
 	private JTextField textFieldCaballo3;
 	private JTextField textFieldCaballo4;
 
-	public static void main(String[] args) {
-
-				Trampas frame = new Trampas();
-				frame.setVisible(true);
-			
-		
-	}
-
+	
 	public Trampas() {
 
 		setTitle("Trampas - Prioridades");
