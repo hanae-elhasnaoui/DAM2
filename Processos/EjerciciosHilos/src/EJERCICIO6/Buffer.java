@@ -7,6 +7,7 @@ public class Buffer {
 	private boolean bufferLleno;
 	
 	public Buffer() {
+		this.bufferLleno = false;
 		
 	}
 	
