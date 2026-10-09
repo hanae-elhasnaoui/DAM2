@@ -3,11 +3,11 @@ package EJERCICIO6;
 public class Ejecutable {
 
 	public static void main(String[] args) {
-		Buffer b = new Buffer();
-		Productor p = new Productor(b);
-		Consumidor c = new Consumidor(b);
+		Buffer bf = new Buffer();
+		Productor pr = new Productor(bf);
+		Consumidor c = new Consumidor(bf);
 		
-		p.start();
+		pr.start();
 		c.start();
 
 	}
