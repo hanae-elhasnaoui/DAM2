@@ -30,6 +30,8 @@ public class Servidor {
 
 				salida.writeUTF("Saludos desde el servidor al cliente Nº " + (i + 1));
 
+				salida.close();
+				entrada.close();
 				cliente.close();
 
 			}

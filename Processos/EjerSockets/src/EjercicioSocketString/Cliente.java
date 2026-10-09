@@ -24,6 +24,9 @@ public class Cliente {
 	            String respuestaServidor = entrada.readUTF();
 	            System.out.println(respuestaServidor);
 	            
+	            salida.close();
+	            entrada.close();
+	            
 	            socket.close();
 	            
 	        } catch (IOException e) {
