@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LlamadaTelefonica</string>
+    <string name="pulsa">Pulsa para llamar a Walter white</string>
+    <string name="llamar_por_tel_fono">Llamar por teléfono</string>
+</resources>

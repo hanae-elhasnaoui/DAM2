@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Ejercicio5_RadioButton</string>
+    <string name="cual_es_el_mas_mejor_videojuego">Cual es el mas mejor videojuego?</string>
+    <string name="minecraft">Minecraft</string>
+    <string name="grand_theft_auto_v">Grand Theft Auto V</string>
+    <string name="tetris">Tetris</string>
+    <string name="red_dead_redemption_2">Red Dead Redemption 2</string>
+    <string name="a_ver_cual_escoges">A ver cual escoges ...</string>
+    <string name="te_gusta_la_encuesta">Te gusta la encuesta</string>
 </resources>
