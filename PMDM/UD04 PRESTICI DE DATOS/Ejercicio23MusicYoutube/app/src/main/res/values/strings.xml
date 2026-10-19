@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ejercicio 23</string>
+    <string name="mis_canciones_favoritas">Mis Canciones Favoritas</string>
+    <string name="t_tulo_de_la_canci_n">Título de la Canción</string>
+    <string name="autor_cantante">Autor / Cantante</string>
+    <string name="borrar">Borrar</string>
+    <string name="guardar_canci_n">Guardar Canción</string>
+    <string name="url_de_youtube">URL de YouTube</string>
+    <string name="autor_grupo">Autor / Grupo</string>
+    <string name="titulo_de_la_canci_n">Título de la canción</string>
+</resources>
