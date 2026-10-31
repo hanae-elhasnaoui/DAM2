@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Acceso a datos/cines/ud01-ejercicio-json/src/main/java"/>
+	<classpathentry kind="src" path="Acceso a datos/cines/ud01-ejercicio-json/src/test/java"/>
+	<classpathentry kind="src" path="Acceso a datos/EjerciciosFicherostextoplano/src"/>
+	<classpathentry kind="src" path="Acceso a datos/ExempleHilos1/src"/>
+	<classpathentry kind="src" path="Acceso a datos/Fichero/src"/>
+	<classpathentry kind="src" path="Acceso a datos/FicherosBinario/src"/>
+	<classpathentry kind="src" path="Acceso a datos/FicheroTextePlane/src"/>
+	<classpathentry kind="src" path="Acceso a datos/HilosJava/src"/>
+	<classpathentry kind="src" path="Acceso a datos/Multiproceso/src"/>
+	<classpathentry kind="src" path="Acceso a datos/procesos/src"/>
+	<classpathentry kind="src" path="Processos/EjerciciosHilos/src"/>
+	<classpathentry kind="src" path="Processos/EjerSockets/src"/>
+	<classpathentry kind="src" path="Processos/Multiproceso/src"/>
+	<classpathentry kind="lib" path="Ejer16/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="EJERCICIO16/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/App camera/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/Calcula/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/Ejercicioguiado/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/Ejercicioskotlin/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/UD003 Intents y ciclos de vida/Ejer18/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/UD003 Intents y ciclos de vida/ejer19AGENDA/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/UD02-DISEÑO DEL INTERFAZ DE USUARIO/Tema 1/Ejercicio5_RadioButton/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/UD02-DISEÑO DEL INTERFAZ DE USUARIO/Tema 1/Ejercicio6Llamada/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/UD04 PRESTICI DE DATOS/Ejercicio23MusicYoutube/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="PMDM/UD04 PRESTICI DE DATOS/ROOM/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="output" path="Acceso a datos/EjerciciosFicherostextoplano/bin"/>
+</classpath>
