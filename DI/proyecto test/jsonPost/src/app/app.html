@@ -1,0 +1,22 @@
+<p>Número de artículos: {{ articulos.length }}</p>
+<table border="1" style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Contenido</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (articulo of articulos ; track $index) {
+      <tr>
+        <td>{{ articulo.id }}</td>
+        <td>{{ articulo.userId }}</td>
+        <td>{{ articulo.title }}</td>
+        <td>{{ articulo.body }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
