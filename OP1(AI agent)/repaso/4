@@ -1,0 +1,35 @@
+import ollama
+from rich.console import Console
+from rich.markdown import Markdown
+
+tema = input("Tema: ")
+destinatario = input("¿Para quién?: ")
+longitud = input("¿Corta o larga?: ")
+
+prompt = f"Explica {tema} para {destinatario}. Explicación {longitud}."
+modelo = "qwen3.5:4b"
+
+try:
+    respuesta = ollama.chat(
+        model=modelo,
+        think=False,
+        messages=[
+            {"role": "system", "content": "Eres un profesor. Responde en Markdown."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+
+    texto = respuesta["message"]["content"]
+    Console().print(Markdown(texto))
+
+    nombre = tema.strip().lower().replace(" ", "_") + ".md"
+    with open(nombre, "w", encoding="utf-8") as archivo:
+        archivo.write(texto)
+
+    print(f"Guardado en: {nombre}")
+
+except ollama.ResponseError:
+    print("Error: modelo no instalado.")
+
+except ollama.ConnectionError:
+    print("Error: Ollama no está funcionando.")

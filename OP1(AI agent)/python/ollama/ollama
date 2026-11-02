@@ -1,0 +1,59 @@
+import ollama
+import time
+from rich.console import Console
+from rich.markdown import Markdown
+
+# 1. Configuración inicial
+MODELO = "qwen3.5:4b"  # El modelo que tienes instalado según tu 'ollama list'
+FICHERO_MD = "informática_aula.md"
+PREGUNTA = "Explica brevemente qué es la memoria RAM en informática y pon un ejemplo sencillo."
+
+def generar_y_guardar_markdown():
+    console = Console()
+    console.print(f"[bold blue]🚀 Solicitando texto a {MODELO}...[/bold blue]\n")
+    
+    tiempo_inicio = time.time()
+    texto_completo = ""
+    tpt = None
+    
+    try:
+        # 2. Petición en streaming para medir el primer token
+        stream = ollama.chat(
+            model=MODELO,
+            messages=[
+                {
+                    'role': 'system', 
+                    'content': 'Responde en español usando formato Markdown obligatorio (títulos ##, texto explicativo con negritas, una lista de puntos y un bloque de código corto con comandos o sintaxis).'
+                },
+                {'role': 'user', 'content': PREGUNTA}
+            ],
+            stream=True
+        )
+        
+        console.print("[yellow]Pintando streaming en vivo:[/yellow]")
+        for chunk in stream:
+            if tpt is None:
+                tpt = time.time() - tiempo_inicio  # Captura el tiempo al primer carácter
+                
+            fragmento = chunk['message']['content']
+            texto_completo += fragmento
+            print(fragmento, end='', flush=True)
+            
+        tiempo_total = time.time() - tiempo_inicio
+        console.print(f"\n\n[green]✔ Métricas -> Primer Token: {tpt:.3f}s | Tiempo Total: {tiempo_total:.3f}s[/green]\n")
+        
+        # 3. Guardar el archivo en formato .md
+        with open(FICHERO_MD, "w", encoding="utf-8") as f:
+            f.write(texto_completo)
+        console.print(f"[bold green]💾 Fichero guardado con éxito como '{FICHERO_MD}'[/bold green]\n")
+        
+        # 4. Mostrar el contenido del archivo procesado con RICH
+        console.print("[bold magenta]👇 Renderizado final del archivo guardado usando RICH:[/bold magenta]\n" + "="*60)
+        console.print(Markdown(texto_completo))
+        console.print("="*60)
+        
+    except Exception as e:
+        console.print(f"[bold red]❌ Ocurrió un error: {e}[/bold red]")
+
+if __name__ == "__main__":
+    generar_y_guardar_markdown()
