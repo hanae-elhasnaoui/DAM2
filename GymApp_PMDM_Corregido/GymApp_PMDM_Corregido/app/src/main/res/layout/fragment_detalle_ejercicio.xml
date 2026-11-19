@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+<include layout="@layout/cabecera"/>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Detalle del ejercicio" android:textSize="24sp" android:textStyle="bold"/>
+<Button android:id="@+id/btnCompletar" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/completar_ejercicio"/>
+<Button android:id="@+id/btnDesmarcar" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/desmarcar_ejercicio"/>
+<Button android:id="@+id/btnVolver" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/volver"/>
+<LinearLayout android:id="@+id/contenido" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/></LinearLayout></ScrollView>

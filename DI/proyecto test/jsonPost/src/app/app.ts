@@ -25,6 +25,7 @@ export class App  implements OnInit{
       this.articulos=datos ;
       console.log(datos);
     })
+    
   }
   
 

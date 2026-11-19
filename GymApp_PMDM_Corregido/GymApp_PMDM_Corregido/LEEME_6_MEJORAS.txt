@@ -1,0 +1,14 @@
+GymApp - seis mejoras solicitadas
+1. WorkoutAdapter / EjercicioAdapter y RecyclerView reales.
+2. strings.xml español e inglés y selector de idioma en Perfil.
+3. Switch claro/oscuro persistente mediante SharedPreferences.
+4. FragmentLogo con animación de aparición y paso a Login.
+5. cabecera.xml reutilizada en Workouts, Ejercicios, Detalle y Entrenador.
+6. Permiso CAMERA con RequestPermission y aviso al denegarlo.
+
+ATENCIÓN: No se ha compilado en Android Studio en este entorno.
+Hay textos todavía literales en algunos layouts, Kotlin y adapters que requieren
+pasarse a strings.xml para cumplir literalmente el requisito de multiidioma total.
+La foto se obtiene con TakePicturePreview (miniatura), no fotografía de resolución completa.
+Probar permisos y flujo en dispositivo real/emulador.
+La contraseña se guarda en texto plano en esta versión académica: no usar con datos reales.

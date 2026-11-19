@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+<include layout="@layout/cabecera"/>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/entrenador" android:textSize="24sp" android:textStyle="bold"/>
+<EditText android:id="@+id/etNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre workout" android:inputType="text"/>
+<EditText android:id="@+id/etNivel" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nivel" android:inputType="number"/>
+<EditText android:id="@+id/etVideo" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="URL vídeo (opcional)" android:inputType="textUri"/>
+<EditText android:id="@+id/etWorkoutId" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="ID workout para ejercicios" android:inputType="number"/>
+<EditText android:id="@+id/etEjercicioNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre ejercicio" android:inputType="text"/>
+<EditText android:id="@+id/etEjercicioTipo" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tipo ejercicio" android:inputType="text"/>
+<EditText android:id="@+id/etEjercicioDescripcion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Descripción" android:inputType="textMultiLine"/>
+<EditText android:id="@+id/etEjercicioOrden" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Orden" android:inputType="number"/>
+<EditText android:id="@+id/etEjercicioTiempo" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tiempo estimado (min)" android:inputType="number"/>
+<Button android:id="@+id/btnCrearEjercicio" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/crear_ejercicio"/>
+<Button android:id="@+id/btnVerEjercicios" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ver_ejercicios"/>
+<Button android:id="@+id/btnCrear" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/crear_workout"/>
+<Button android:id="@+id/btnListar" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/actualizar_lista"/>
+<Button android:id="@+id/btnPerfil" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Perfil"/>
+<Button android:id="@+id/btnSalir" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/salir"/>
+<LinearLayout android:id="@+id/contenido" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/></LinearLayout></ScrollView>

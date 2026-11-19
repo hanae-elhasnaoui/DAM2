@@ -1,0 +1,39 @@
+<resources>
+<string name="app_name">GymApp</string>
+<string name="ver_video">Watch video</string>
+<string name="login">Sign in</string>
+<string name="registro">Register</string>
+<string name="perfil">My profile</string>
+<string name="workouts">Workouts</string>
+<string name="ejercicios">Exercises</string>
+<string name="entrenador">Trainer</string>
+<string name="guardar">Save</string>
+<string name="volver">Back</string>
+<string name="foto">Take photo</string>
+<string name="tema">Dark theme</string>
+<string name="idioma">Language</string>
+<string name="cliente">Client</string>
+<string name="registrarse">Register</string>
+<string name="nombre">First name</string>
+<string name="apellidos">Last name</string>
+<string name="email">Email</string>
+<string name="password">Password</string>
+<string name="fecha">Birth date</string>
+<string name="nivel">Level</string>
+<string name="recordar">Remember me</string>
+<string name="entrar">Sign in</string>
+<string name="filtro">Filter</string>
+<string name="salir">Sign out</string>
+<string name="completar_workout">Complete workout</string>
+<string name="desmarcar_workout">Uncomplete workout</string>
+<string name="completar_ejercicio">Complete exercise</string>
+<string name="desmarcar_ejercicio">Uncomplete exercise</string>
+<string name="crear_workout">Create workout</string>
+<string name="crear_ejercicio">Create exercise</string>
+<string name="actualizar_lista">Refresh list</string>
+<string name="ver_ejercicios">View workout exercises</string>
+<string name="tipo_usuario">User type</string>
+<string name="registro_usuario">User registration</string>
+<string name="nivel_filtro">Level (blank = all)</string>
+<string name="filtro_nombre">Filter by name</string>
+</resources>

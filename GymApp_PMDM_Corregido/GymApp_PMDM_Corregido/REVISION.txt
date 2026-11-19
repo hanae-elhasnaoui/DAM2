@@ -1,0 +1,6 @@
+CORRECCIONES: login por login+pass+rol, remember me con rol, validaciones registro/perfil,
+recarga de listas al volver, edición workouts en Entrenador, restricciones básicas de campos,
+índices únicos para evitar duplicados de progreso, más strings traducidos.
+LIMITACIONES: no se ha ejecutado compilación Android (SDK no disponible), faltan traducciones
+completas de textos generados desde Kotlin y pruebas de UI/cámara en dispositivo.
+Las contraseñas siguen almacenadas en claro para el ejercicio académico: NO usar datos reales.

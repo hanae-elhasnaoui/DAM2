@@ -1,0 +1,16 @@
+CAMBIOS DE ESTA VERSION
+- Login: Remember Me con SharedPreferences.
+- Registro: DatePickerDialog, validaciones y foto con cámara (TakePicturePreview).
+- Perfil: ver/cambiar foto y guardar datos en Room.
+- Entrenador: crear/editar/eliminar workouts y ejercicios, confirmación al borrar.
+- Se mantienen Fragments separados y Room existente.
+
+LIMITACIONES IMPORTANTES
+- No se ha ejecutado Gradle Sync ni compilación Android Studio.
+- La cámara se abre mediante ActivityResultContracts.TakePicturePreview; Android
+  no exige permiso CAMERA de la app para este flujo delegado. La rúbrica exige
+  demostrar petición de permisos y manejo de rechazo, todavía pendiente.
+- Falta implementar multiidioma, tema persistente, RecyclerView/Adapter reales,
+  animación inicial y cabeceras completas.
+- Contraseñas de prueba se guardan en texto plano, sólo para ejercicio de clase.
+- Revisar que la navegación y los flujos funcionen en emulador.

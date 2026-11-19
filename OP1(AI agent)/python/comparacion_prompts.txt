@@ -1,0 +1,54 @@
+PROMPT POBRE:
+Resume esto:
+
+La inteligencia artificial es una tecnología que permite a las máquinas
+realizar tareas que normalmente requieren inteligencia humana.
+Se utiliza en medicina, educación, transporte y programación.
+Entre sus ventajas destacan la automatización de tareas y el análisis
+rápido de grandes cantidades de datos.
+Sin embargo, también presenta riesgos relacionados con la privacidad,
+la seguridad y la sustitución de algunos puestos de trabajo.
+
+
+RESPUESTA 1:
+La inteligencia artificial es una tecnología capaz de ejecutar funciones que normalmente requieren intelecto humano, aplicándose en sectores como la medicina, la educación, el transporte y la programación. Sus principales ventajas radican en la automatización de procesos y en el análisis acelerado de grandes volúmenes de datos, aunque esto conlleva riesgos importantes en cuanto a privacidad, seguridad y posible sustitución de puestos de trabajo.
+Palabras: 64
+
+PROMPT MEJORADO:
+
+ROL:
+Eres un profesor especializado en inteligencia artificial.
+
+TAREA:
+Resume el siguiente texto destacando las ideas principales.
+
+LÍMITES:
+- Utiliza un máximo de 40 palabras.
+- No inventes información.
+- Utiliza un lenguaje sencillo.
+
+FORMATO:
+- Escribe un único párrafo.
+- No añadas títulos.
+
+TEXTO:
+
+La inteligencia artificial es una tecnología que permite a las máquinas
+realizar tareas que normalmente requieren inteligencia humana.
+Se utiliza en medicina, educación, transporte y programación.
+Entre sus ventajas destacan la automatización de tareas y el análisis
+rápido de grandes cantidades de datos.
+Sin embargo, también presenta riesgos relacionados con la privacidad,
+la seguridad y la sustitución de algunos puestos de trabajo.
+
+
+RESPUESTA 2:
+La inteligencia artificial ayuda a las máquinas a realizar tareas humanas en sectores como la medicina o educación. Ofrece ventajas como la automatización y el análisis rápido, pero presenta riesgos para la privacidad, seguridad y empleo.
+Palabras: 36
+
+COMPARACIÓN:
+Prompt pobre: 64 palabras
+Prompt mejorado: 36 palabras
+
+LÍMITE DE 40 PALABRAS:
+Cumple el límite.

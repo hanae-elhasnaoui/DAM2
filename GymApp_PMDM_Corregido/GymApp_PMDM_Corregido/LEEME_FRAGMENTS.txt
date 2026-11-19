@@ -1,0 +1,8 @@
+GymApp con Fragments separados.
+FragmentLogin.kt, FragmentRegistro.kt, FragmentPerfil.kt, FragmentWorkouts.kt,
+FragmentEjercicios.kt, FragmentDetalleEjercicio.kt, FragmentEntrenador.kt.
+Cada Fragment tiene su propio fragment_*.xml.
+Se conserva la base de datos Room del ZIP original.
+PENDIENTE: cámara, remember me, idiomas, temas, CRUD completo de ejercicios,
+RecyclerView/Adapter (se usan botones dinámicos), validación avanzada.
+No se ha verificado compilación en Android Studio.
