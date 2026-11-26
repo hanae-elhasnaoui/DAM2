@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CATALOGO>
+    	
+    <CD id="1">
+        		
+        <TITULO>Empire Burlesque</TITULO>
+        		
+        <ARTISTA>Bob Dylan</ARTISTA>
+        		
+        <PAIS>EE.UU.</PAIS>
+        		
+        <SELLO>Columbia</SELLO>
+        		
+        <PRECIO>10.90</PRECIO>
+        		
+        <AÑO>1985</AÑO>
+        	
+        <NUMERO>1</NUMERO>
+    </CD>
+    	
+    <CD id="2">
+        		
+        <TITULO>Hide your heart</TITULO>
+        		
+        <ARTISTA>Bonnie Tyler</ARTISTA>
+        		
+        <PAIS>Reino Unido</PAIS>
+        		
+        <SELLO>CBS Records</SELLO>
+        		
+        <PRECIO>9.90</PRECIO>
+        		
+        <AÑO>1988</AÑO>
+        	
+        <NUMERO>2</NUMERO>
+    </CD>
+    	
+    <CD id="3">
+        		
+        <TITULO>Greatest Hits</TITULO>
+        		
+        <ARTISTA>Dolly Parton</ARTISTA>
+        		
+        <PAIS>EE.UU.</PAIS>
+        		
+        <SELLO>RCA</SELLO>
+        		
+        <PRECIO>9.90</PRECIO>
+        		
+        <AÑO>1982</AÑO>
+        	
+        <NUMERO>3</NUMERO>
+    </CD>
+    
+    <CD id="4">
+        <TITULO>Thriller</TITULO>
+        <ARTISTA>Michael Jackson</ARTISTA>
+        <PAIS>EE.UU.</PAIS>
+        <SELLO>Epic</SELLO>
+        <PRECIO>15.50</PRECIO>
+        <AÑO>1982</AÑO>
+        <NUMERO>4</NUMERO>
+    </CD>
+</CATALOGO>
